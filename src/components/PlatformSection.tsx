@@ -10,25 +10,34 @@ interface PlatformSectionProps {
 }
 
 export default function PlatformSection({ onNext, onBack, onGoToDashboard }: PlatformSectionProps) {
-  const socialPoints = [
-    'Dân chúng được tự do tổ chức',
-    'Nam nữ bình quyền',
-    'Phổ thông giáo dục theo công nông hóa'
+  const politicalChallenges = [
+    'Chính quyền non trẻ, mới thành lập, chưa có kinh nghiệm quản lý',
+    'Chưa có Quốc hội, Hiến pháp, các cơ quan hành chính còn rời rạc',
+    'Đảng Cộng sản Đông Dương tự giải tán để tránh bị coi là "độc tài"',
+    'Không có nước nào công nhận ngoại giao, kể cả Liên Xô hay Trung Quốc',
+    'Nguy cơ bị lật đổ từ bên trong bởi các phe phái phản động'
   ]
 
-  const economicPoints = [
-    'Thủ tiêu hết các thứ quốc trái, thâu hết sản nghiệp lớn của tư bản đế quốc chủ nghĩa Pháp để giao cho Chính phủ công nông binh quản lí',
-    'Thâu hết ruộng đất của đế quốc chủ nghĩa chia cho dân cày nghèo, bỏ sưu thuế',
-    'Mở mang công nông nghiệp',
-    'Thi hành luật ngày làm tám giờ'
+  const militaryChallenges = [
+    'Quân đội yếu, vũ khí thô sơ, chưa huấn luyện chính quy',
+    'Các lực lượng vũ trang chỉ mới tổ chức sơ khai (dân quân tự vệ, Việt Minh)',
+    'Không có hậu cần, không có đồng minh cung cấp vũ khí',
+    'Bị bao vây quân sự từ cả Bắc lẫn Nam'
   ]
 
-  const conclusionPoints = [
-    'Phản ánh súc tích luận điểm cơ bản của cách mạng Việt Nam',
-    'Thể hiện bản lĩnh chính trị độc lập, tự chủ, sáng tạo',
-    'Đánh giá đúng mâu thuẫn cơ bản và chủ yếu của dân tộc Việt Nam',
-    'Đánh giá đúng thái độ các giai tầng trong xã hội',
-    'Thỏa mãn nhu cầu phát triển của thực tiễn cách mạng'
+  const economicChallenges = [
+    'Ngân khố quốc gia trống rỗng, chỉ còn khoảng 1,2 triệu đồng Đông Dương',
+    'Đồng tiền mất giá, lạm phát cao, hàng hóa khan hiếm',
+    'Sản xuất đình trệ do chiến tranh kéo dài và thiên tai',
+    'Nạn đói năm 1945 vừa qua đi, hàng triệu người chết, ruộng đồng bỏ hoang',
+    'Hệ thống thuế khóa và quản lý kinh tế cũ của Pháp - Nhật bị tan rã'
+  ]
+
+  const socialChallenges = [
+    'Hơn 90% dân số mù chữ, do chính sách ngu dân của thực dân Pháp',
+    'Tệ nạn xã hội, mê tín, phong kiến vẫn phổ biến',
+    'Tâm lý hoang mang sau chiến tranh: dân đói, dân dốt, dân nghèo',
+    'Các tàn dư chế độ cũ gây chia rẽ và bất ổn xã hội'
   ]
 
   return (
@@ -44,11 +53,11 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
           <div className="flex items-center justify-center mb-4">
             <BookOpen className="w-8 h-8 mr-3 text-blue-400" />
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Cương lĩnh chính trị đầu tiên của Đảng
+              Những Khó Khăn Nội Tại
             </h1>
           </div>
           <p className="text-gray-300">
-            Văn kiện nền tảng định hướng cách mạng Việt Nam (2/1930)
+            Tình trạng trong nước sau khi giành được độc lập (1945-1946)
           </p>
         </motion.div>
 
@@ -59,14 +68,13 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-10"
         >
-          <img
-            src="/images/ccvt.png"
-            alt="Chánh cương vắn tắt và Sách lược vắn tắt (2/1930)"
-            className="w-full rounded-2xl border border-white/20 shadow-lg"
-          />
-          <p className="text-center text-gray-400 mt-3 italic">
-            Chánh cương vắn tắt và Sách lược vắn tắt (2/1930)
-          </p>
+          <div className="text-center bg-gradient-to-r from-red-900/50 to-yellow-900/50 backdrop-blur-lg rounded-2xl p-8 border border-yellow-400/30">
+            <div className="text-6xl mb-4">🏛️</div>
+            <h3 className="text-3xl font-bold text-yellow-400 mb-4">Tình Thế "Ngàn Cân Treo Sợi Tóc"</h3>
+            <p className="text-xl text-gray-300 italic">
+              "Chỉ cần một sai lầm nhỏ cũng có thể khiến nền độc lập non trẻ sụp đổ"
+            </p>
+          </div>
         </motion.div>
 
         {/* Mục tiêu chiến lược + Nhiệm vụ chủ yếu */}
@@ -77,19 +85,17 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
           >
-            <h2 className="text-2xl font-bold text-yellow-400 mb-4 flex items-center">
+            <h2 className="text-2xl font-bold text-red-400 mb-4 flex items-center">
               <Target className="w-6 h-6 mr-2" />
-              Mục tiêu chiến lược
+              Khó Khăn Chính Trị
             </h2>
             <ul className="space-y-3 text-gray-200">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Mâu thuẫn giữa dân tộc Việt Nam với đế quốc ngày càng gay gắt cần phải giải quyết.
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                ⇒ Xác định đường lối chiến lược của cách mạng Việt Nam: “chủ trương làm tư sản dân quyền c.m và thổ địa c.m để đi tới xã hội cộng sản”.
-              </li>
+              {politicalChallenges.map((item, idx) => (
+                <li key={idx} className="flex items-start">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  {item}
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -99,14 +105,19 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
             transition={{ duration: 0.5, delay: 0.25 }}
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
           >
-            <h2 className="text-2xl font-bold text-red-400 mb-4">Nhiệm vụ chủ yếu trước mắt</h2>
-            <div className="text-gray-200 leading-relaxed">
-              “Đánh đổ đế quốc chủ nghĩa Pháp và bọn phong kiến, làm cho nước Nam hoàn toàn độc lập”.
-            </div>
+            <h2 className="text-2xl font-bold text-orange-400 mb-4">Khó Khăn Quân Sự</h2>
+            <ul className="space-y-3 text-gray-200">
+              {militaryChallenges.map((item, idx) => (
+                <li key={idx} className="flex items-start">
+                  <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
 
-        {/* Phương diện xã hội + kinh tế */}
+        {/* Khó khăn kinh tế + xã hội */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -114,11 +125,11 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
             transition={{ duration: 0.5, delay: 0.3 }}
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
           >
-            <h3 className="text-xl font-bold text-green-400 mb-4">Phương diện xã hội</h3>
+            <h3 className="text-xl font-bold text-blue-400 mb-4">Khó Khăn Kinh Tế - Tài Chính</h3>
             <ul className="space-y-3 text-gray-200">
-              {socialPoints.map((item, idx) => (
+              {economicChallenges.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
@@ -131,11 +142,11 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
             transition={{ duration: 0.5, delay: 0.35 }}
             className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
           >
-            <h3 className="text-xl font-bold text-blue-400 mb-4">Phương diện kinh tế</h3>
+            <h3 className="text-xl font-bold text-green-400 mb-4">Khó Khăn Văn Hóa - Xã Hội</h3>
             <ul className="space-y-3 text-gray-200">
-              {economicPoints.map((item, idx) => (
+              {socialChallenges.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
@@ -207,22 +218,42 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
           </motion.div>
         </div>
 
-        {/* Kết luận */}
+        {/* Tổng kết về tình thế khó khăn */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="bg-gradient-to-r from-yellow-600/30 to-red-600/30 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
+          className="bg-gradient-to-r from-red-600/30 to-yellow-600/30 backdrop-blur-lg rounded-2xl p-6 border border-white/20"
         >
-          <h3 className="text-2xl font-bold text-yellow-300 mb-4">Kết luận</h3>
-          <ul className="space-y-3 text-gray-200">
-            {conclusionPoints.map((item, idx) => (
-              <li key={idx} className="flex items-start">
-                <span className="w-2 h-2 bg-yellow-300 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                {item}
-              </li>
-            ))}
-          </ul>
+          <h3 className="text-2xl font-bold text-yellow-300 mb-4">Tổng Kết Tình Thế</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold text-red-300 mb-3">Mức độ nghiêm trọng:</h4>
+              <ul className="space-y-2 text-gray-200">
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Mọi mặt đời sống đều trong tình trạng nguy kịch
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Nền độc lập non trẻ có thể sụp đổ bất cứ lúc nào
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-yellow-300 mb-3">Ý nghĩa lịch sử:</h4>
+              <ul className="space-y-2 text-gray-200">
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Thử thách lớn nhất từ khi giành độc lập
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Cần biện pháp cấp bách và khẩn trương
+                </li>
+              </ul>
+            </div>
+          </div>
         </motion.div>
 
         {/* Navigation */}
@@ -255,7 +286,7 @@ export default function PlatformSection({ onNext, onBack, onGoToDashboard }: Pla
             onClick={onNext}
             className="flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full transition-all duration-300 font-semibold"
           >
-            Tiếp theo
+            Tiếp theo: Biện pháp vượt qua
             <ArrowRight className="w-5 h-5 ml-2" />
           </button>
         </motion.div>

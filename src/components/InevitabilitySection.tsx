@@ -14,119 +14,81 @@ interface Factor {
   color: string
 }
 
-const inevitabilityFactors: Factor[] = [
+const resultsAndSignificance: Factor[] = [
   {
-    id: 'economic-social',
-    title: 'Yếu tố kinh tế - xã hội',
-    description: 'Sự phát triển của quan hệ sản xuất tư bản chủ nghĩa và giai cấp công nhân',
+    id: 'preserve-independence',
+    title: 'Giữ vững nền độc lập non trẻ',
+    description: 'Bảo vệ thành quả Cách mạng Tháng Tám trong hoàn cảnh cực kỳ hiểm nghèo',
     details: [
-      'Kinh tế hàng hóa phát triển mạnh',
-      'Giai cấp công nhân ra đời và lớn mạnh',
-      'Mâu thuẫn giai cấp ngày càng gay gắt',
-      'Nhu cầu có tổ chức lãnh đạo giai cấp'
+      'Vượt qua được giai đoạn "Ngàn cân treo sợi tóc"',
+      'Không để mất nền độc lập vừa giành được',
+      'Chống lại các thế lực thù địch từ nhiều phía',
+      'Duy trì được chính quyền cách mạng'
     ],
     evidence: [
-      'Năm 1929: Có khoảng 221.000 công nhân',
-      'Các cuộc đình công liên tiếp diễn ra',
-      'Phong trào công nhân có tổ chức',
-      'Ý thức giai cấp được nâng cao'
+      'Chính quyền cách mạng được duy trì từ 1945-1946',
+      'Không bị lật đổ dù áp lực rất lớn',
+      'Dân tộc đoàn kết xung quanh chính quyền',
+      'Chuẩn bị được lực lượng cho kháng chiến'
     ],
-    icon: '🏭',
-    color: 'from-blue-500 to-blue-700'
-  },
-  {
-    id: 'political',
-    title: 'Yếu tố chính trị',
-    description: 'Khủng hoảng của các tổ chức chính trị cũ và nhu cầu đường lối mới',
-    details: [
-      'Các tổ chức cũ đều thất bại',
-      'Phong trào yêu nước lâm vào bế tắc',
-      'Thiếu đường lối cách mạng đúng đắn',
-      'Cần có lực lượng lãnh đạo mới'
-    ],
-    evidence: [
-      'Việt Nam Quốc Dân Đảng thất bại',
-      'Các tổ chức tôn giáo không hiệu quả',
-      'Phong trào Duy Tân không thành công',
-      'Cần có đảng cách mạng chân chính'
-    ],
-    icon: '🏛️',
-    color: 'from-red-500 to-red-700'
-  },
-  {
-    id: 'ideological',
-    title: 'Yếu tố tư tưởng',
-    description: 'Sự truyền bá và tiếp nhận chủ nghĩa Mác-Lênin tại Việt Nam',
-    details: [
-      'Chủ nghĩa Mác-Lênin được truyền bá',
-      'Tư tưởng cách mạng vô sản lan rộng',
-      'Có cơ sở lý luận khoa học',
-      'Phù hợp với thực tiễn Việt Nam'
-    ],
-    evidence: [
-      'Nguyễn Ái Quốc nghiên cứu Mác-Lênin',
-      'Báo chí cách mạng phát triển',
-      'Tư tưởng tiến bộ được phổ biến',
-      'Lý luận khoa học chỉ đạo thực tiễn'
-    ],
-    icon: '📚',
+    icon: '🛡️',
     color: 'from-green-500 to-green-700'
   },
   {
-    id: 'organizational',
-    title: 'Yếu tố tổ chức',
-    description: 'Sự chuẩn bị về tổ chức và nhân sự cho việc thành lập Đảng',
+    id: 'build-institutions',
+    title: 'Xây dựng bộ máy nhà nước',
+    description: 'Thành lập được hệ thống chính quyền, hiến pháp, quân đội đầu tiên',
     details: [
-      'Các tổ chức tiền thân được thành lập',
-      'Đội ngũ cán bộ được đào tạo',
-      'Kinh nghiệm tổ chức được tích lũy',
-      'Mạng lưới hoạt động được hình thành'
+      'Tổ chức Tổng tuyển cử đầu tiên (6/1/1946)',
+      'Thành lập Chính phủ chính thức (2/3/1946)',
+      'Ban hành Hiến pháp đầu tiên (9/11/1946)',
+      'Xây dựng lực lượng vũ trang nhân dân'
     ],
     evidence: [
-      'Thanh niên Cách mạng Đồng chí Hội (1925)',
-      'Việt Nam Cách mạng Thanh niên Đảng (1927)',
-      'Đông Dương Cộng sản Đảng (1929)',
-      'An Nam Cộng sản Đảng (1929)'
+      '333 đại biểu Quốc hội được bầu',
+      'Hồ Chí Minh làm Chủ tịch nước',
+      'Hiến pháp dân chủ đầu tiên của Việt Nam',
+      'Quân đội nhân dân được thành lập'
     ],
-    icon: '👥',
+    icon: '🏛️',
+    color: 'from-blue-500 to-blue-700'
+  },
+  {
+    id: 'mobilize-people',
+    title: 'Huy động sức mạnh toàn dân',
+    description: 'Phát huy tinh thần "Tự lực – Đoàn kết – Hy sinh – Kiên cường"',
+    details: [
+      'Phong trào "Ngày đồng tâm" lan rộng',
+      'Tuần lễ vàng thu được 370kg vàng',
+      'Phong trào xóa mù chữ toàn quốc',
+      'Tinh thần yêu nước, tự lực tự cường'
+    ],
+    evidence: [
+      '2,5 triệu người được xóa mù chữ',
+      'Sản lượng nông nghiệp tăng gấp 4 lần',
+      '60 triệu đồng đóng góp cho quỹ quốc gia',
+      'Toàn dân đoàn kết chống khó khăn'
+    ],
+    icon: '�',
     color: 'from-purple-500 to-purple-700'
   },
   {
-    id: 'international',
-    title: 'Yếu tố quốc tế',
-    description: 'Ảnh hưởng của cách mạng thế giới và phong trào cộng sản quốc tế',
+    id: 'foundation-resistance',
+    title: 'Nền móng cho kháng chiến',
+    description: 'Đặt nền móng vững chắc cho cuộc kháng chiến chống Pháp và xây dựng đất nước',
     details: [
-      'Cách mạng Tháng Mười Nga thành công',
-      'Phong trào cộng sản thế giới phát triển',
-      'Quốc tế Cộng sản hỗ trợ',
-      'Xu thế thời đại thuận lợi'
+      'Chuẩn bị về chính trị, tư tưởng',
+      'Tạo được sức mạnh tinh thần toàn dân',
+      'Có kinh nghiệm tổ chức và lãnh đạo',
+      'Tích lũy được bài học quý báu'
     ],
     evidence: [
-      'Cách mạng Nga 1917 thắng lợi',
-      'Các đảng cộng sản châu Á ra đời',
-      'Quốc tế Cộng sản chỉ đạo',
-      'Phong trào giải phóng dân tộc mạnh mẽ'
+      'Kháng chiến chống Pháp (1946-1954) thành công',
+      'Giải phóng miền Bắc, tiến tới thống nhất',
+      'Kinh nghiệm xây dựng nhà nước dân chủ',
+      'Bài học về sự nghiệp giải phóng dân tộc'
     ],
-    icon: '🌍',
-    color: 'from-indigo-500 to-indigo-700'
-  },
-  {
-    id: 'leadership',
-    title: 'Yếu tố lãnh đạo',
-    description: 'Vai trò của Nguyễn Ái Quốc trong việc chuẩn bị và thành lập Đảng',
-    details: [
-      'Lãnh tụ có tầm nhìn chiến lược',
-      'Kết hợp lý luận với thực tiễn',
-      'Có uy tín và khả năng tổ chức',
-      'Đại diện cho nguyện vọng dân tộc'
-    ],
-    evidence: [
-      'Hoạt động cách mạng từ 1911',
-      'Nghiên cứu sâu chủ nghĩa Mác-Lênin',
-      'Thành lập các tổ chức tiền thân',
-      'Chủ trì Hội nghị thành lập Đảng'
-    ],
-    icon: '👑',
+    icon: '🌟',
     color: 'from-yellow-500 to-yellow-700'
   }
 ]
@@ -177,7 +139,7 @@ export default function InevitabilitySection({ onNext, onBack, onGoToDashboard }
       </motion.div>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {inevitabilityFactors.slice(0, 3).map((factor, index) => (
+        {resultsAndSignificance.slice(0, 3).map((factor, index) => (
           <motion.div
             key={factor.id}
             initial={{ opacity: 0, y: 20 }}
@@ -196,7 +158,7 @@ export default function InevitabilitySection({ onNext, onBack, onGoToDashboard }
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mt-6">
-        {inevitabilityFactors.slice(3, 6).map((factor, index) => (
+        {resultsAndSignificance.slice(3, 6).map((factor, index) => (
           <motion.div
             key={factor.id}
             initial={{ opacity: 0, y: 20 }}
@@ -230,7 +192,7 @@ export default function InevitabilitySection({ onNext, onBack, onGoToDashboard }
       </motion.div>
 
       <div className="space-y-8">
-        {inevitabilityFactors.map((factor, index) => (
+        {resultsAndSignificance.map((factor, index) => (
           <motion.div
             key={factor.id}
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -543,10 +505,10 @@ export default function InevitabilitySection({ onNext, onBack, onGoToDashboard }
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Tính tất yếu của việc thành lập Đảng
+            Kết Quả và Ý Nghĩa Lịch Sử
           </h1>
           <p className="text-gray-300 text-xl">
-            Chứng minh khoa học về tính tất yếu khách quan
+            Những thành tựu đạt được và ý nghĩa to lớn của việc vượt qua khó khăn
           </p>
         </motion.div>
 

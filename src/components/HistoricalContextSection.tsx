@@ -10,27 +10,27 @@ interface HistoricalContextSectionProps {
 }
 
 export default function HistoricalContextSection({ onNext, onBack, onGoToDashboard }: HistoricalContextSectionProps) {
-  const crisisMovements = [
+  const vietnamSituation = [
     {
-      name: "Phong trào Cần Vương",
-      period: "1885-1896",
-      leader: "Phan Đình Phùng",
-      limitation: "Hạn chế về tư tưởng và phương pháp",
-      color: "bg-red-100 border-red-300"
+      name: "Nước Việt Nam Dân Chủ Cộng Hòa Ra Đời",
+      date: "2/9/1945",
+      description: "Nhà nước công nông đầu tiên ở Đông Nam Á",
+      status: "Độc lập nhưng vô cùng mong manh",
+      color: "bg-green-100 border-green-300"
     },
     {
-      name: "Phong trào Duy Tân",
-      period: "1904-1916",
-      leader: "Phan Bội Châu",
-      limitation: "Không có cơ sở quần chúng rộng rãi",
+      name: "Chưa Được Quốc Tế Công Nhận",
+      date: "Sau 2/9/1945",
+      description: "Không có nước nào công nhận ngoại giao",
+      status: "Cô lập về mặt quốc tế",
       color: "bg-orange-100 border-orange-300"
     },
     {
-      name: "Phong trào Đông Du",
-      period: "1905-1908",
-      leader: "Phan Bội Châu",
-      limitation: "Bị đế quốc đàn áp, thiếu đường lối đúng đắn",
-      color: "bg-yellow-100 border-yellow-300"
+      name: 'Tình Thế "Ngàn Cân Treo Sợi Tóc"',
+      date: "1945-1946",
+      description: "Chính quyền mới phải đối diện thử thách nghiêm trọng",
+      status: "Mọi mặt của đời sống đều nguy kịch",
+      color: "bg-red-100 border-red-300"
     }
   ]
 
@@ -60,11 +60,11 @@ export default function HistoricalContextSection({ onNext, onBack, onGoToDashboa
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-            Trước năm 1930: Khủng hoảng đường lối cứu nước
+            Tình hình trong nước và quốc tế sau năm 1945
           </p>
         </motion.div>
 
-        {/* Crisis Overview */}
+        {/* World Context */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -72,48 +72,48 @@ export default function HistoricalContextSection({ onNext, onBack, onGoToDashboa
           className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-12 border border-white/20"
         >
           <div className="flex items-center mb-6">
-            <AlertTriangle className="w-8 h-8 mr-3 text-red-400" />
-            <h2 className="text-3xl font-bold text-red-400">Khủng Hoảng Toàn Diện</h2>
+            <AlertTriangle className="w-8 h-8 mr-3 text-blue-400" />
+            <h2 className="text-3xl font-bold text-blue-400">Tình Hình Thế Giới Sau CTTG Thứ Hai</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Tình hình kinh tế - xã hội</h3>
+              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Trật tự thế giới mới</h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
-                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Khủng hoảng kinh tế thế giới 1929-1933
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Chiến tranh kết thúc (1945) - phe Đồng minh chiến thắng
                 </li>
                 <li className="flex items-start">
-                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Ảnh hưởng nghiêm trọng đến Đông Dương
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Liên Xô, Hoa Kỳ, Anh, Pháp, Trung Quốc chi phối thế giới
                 </li>
                 <li className="flex items-start">
-                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Gia tăng mâu thuẫn xã hội
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  Phong trào giải phóng dân tộc phát triển mạnh mẽ
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Tình hình chính trị</h3>
+              <h3 className="text-xl font-semibold mb-4 text-yellow-400">Chủ nghĩa thực dân</h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Phong trào yêu nước lâm vào bế tắc
+                  Chủ nghĩa thực dân suy yếu nhưng vẫn tìm cách tái chiếm
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Thiếu đường lối cách mạng đúng đắn
+                  Pháp nuôi tham vọng trở lại Việt Nam
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  Cần có lực lượng lãnh đạo mới
+                  Anh và Tưởng Giới Thạch có ảnh hưởng lớn ở ĐNA
                 </li>
               </ul>
             </div>
           </div>
         </motion.div>
 
-        {/* Failed Movements */}
+        {/* Vietnam Situation After 1945 */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -121,27 +121,27 @@ export default function HistoricalContextSection({ onNext, onBack, onGoToDashboa
           className="mb-12"
         >
           <h2 className="text-3xl font-bold text-center mb-8 text-yellow-400">
-            Các Phong Trào Cứu Nước Trước Đây
+            Tình Hình Việt Nam Sau Cách Mạng Tháng Tám
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {crisisMovements.map((movement, index) => (
+            {vietnamSituation.map((situation, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
-                className={`${movement.color} backdrop-blur-lg rounded-xl p-6 border-2 hover:scale-105 transition-transform duration-300`}
+                className={`${situation.color} backdrop-blur-lg rounded-xl p-6 border-2 hover:scale-105 transition-transform duration-300`}
               >
-                <h3 className="text-xl font-bold mb-3 text-gray-800">{movement.name}</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-800">{situation.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">
-                  <strong>Thời gian:</strong> {movement.period}
+                  <strong>Thời gian:</strong> {situation.date}
                 </p>
                 <p className="text-sm text-gray-600 mb-3">
-                  <strong>Lãnh đạo:</strong> {movement.leader}
+                  <strong>Mô tả:</strong> {situation.description}
                 </p>
-                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                  <p className="text-sm text-red-800">
-                    <strong>Hạn chế:</strong> {movement.limitation}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                  <p className="text-sm text-blue-800">
+                    <strong>Tình trạng:</strong> {situation.status}
                   </p>
                 </div>
               </motion.div>
@@ -149,109 +149,24 @@ export default function HistoricalContextSection({ onNext, onBack, onGoToDashboa
           </div>
         </motion.div>
 
-        {/* viết thêm ở đây  */}
-        {/* viết thêm ở đây  */}
+        {/* Quote Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-12 border border-white/20"
+          className="bg-gradient-to-r from-red-900/50 to-yellow-900/50 backdrop-blur-lg rounded-2xl p-8 mb-12 border border-yellow-400/30"
         >
-          <div className="flex items-center mb-6">
-            <Clock className="w-8 h-8 mr-3 text-yellow-400" />
-            <h2 className="text-3xl font-bold text-yellow-400">Các Tổ Chức Cộng Sản Ra Đời</h2>
-          </div>
-
-          <p className="text-lg text-gray-300 mb-6">
-            a) Sự phát triển của phong trào yêu nước theo khuynh hướng vô sản
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-xl border border-white/20 p-6 bg-slate-800/30">
-              <h3 className="text-lg font-semibold mb-3 text-red-300">Hình thức sơ khai (Trước 1914)</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3"></span>
-                  Bỏ trốn tập thể
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3"></span>
-                  Phá giao kèo, đưa đơn phản kháng
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-white/20 p-6 bg-slate-800/30">
-              <h3 className="text-lg font-semibold mb-3 text-yellow-300">Hình thức phát triển (1919-1925)</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3"></span>
-                  Phổ biến bãi công
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3"></span>
-                  Quy mô lớn và thời gian dài
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-white/20 p-6 bg-slate-800/30">
-              <h3 className="text-lg font-semibold mb-3 text-green-300">Mang tính chính trị sâu sắc (1926-1929)</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3"></span>
-                  Có sự lãnh đạo
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3"></span>
-                  Có sự liên kết
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3"></span>
-                  Có sức lôi cuốn
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-6 bg-yellow-500/20 border border-yellow-400/40 rounded-xl p-4">
-            <p className="text-sm text-yellow-200">
-              <strong>Thống kê:</strong> Số lượng các cuộc đấu tranh của công nhân năm 1928-1929 tăng gấp 2,5 lần so với năm 1926-1927.
+          <div className="text-center">
+            <div className="text-6xl text-yellow-400 mb-4">"</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-6 italic">
+              Ngàn Cân Treo Sợi Tóc
+            </h2>
+            <p className="text-xl text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
+              Cụm từ này phản ánh chính xác mức độ hiểm nghèo của Việt Nam sau ngày giành độc lập: 
+              Mọi mặt của đời sống chính trị, kinh tế, xã hội, quốc phòng đều trong tình trạng nguy kịch — 
+              chỉ cần một sai lầm nhỏ cũng có thể khiến nền độc lập non trẻ sụp đổ.
             </p>
-          </div>
-
-          <div className="mt-6 bg-red-500/20 border border-red-400/40 rounded-xl p-4">
-            <p className="text-sm text-red-200">
-              ⇒ Hội Việt Nam Cách mạng Thanh niên không còn thích hợp và đủ sức lãnh đạo phong trào.
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold mb-4 text-yellow-400">Hình thành các tổ chức cộng sản (1929)</h3>
-            <div className="space-y-3 text-gray-300">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3"></span>
-                Chi bộ Bắc Kỳ thành lập Chi bộ Cộng sản đầu tiên (3/1929).
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3"></span>
-                <strong>17/6/1929:</strong> Đông Dương Cộng sản Đảng (Bắc Kỳ).
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3"></span>
-                <strong>9/1929:</strong> Phần tử tiên tiến của Tân Việt thành lập Đông Dương Cộng sản Liên đoàn (Trung Kỳ).
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-red-400 rounded-full mt-2 mr-3"></span>
-                <strong>11/1929:</strong> An Nam Cộng sản Đảng (Nam Kỳ).
-              </div>
-            </div>
-
-            <div className="mt-6 bg-blue-500/20 border border-blue-400/40 rounded-xl p-4">
-              <p className="text-sm text-blue-200">
-                ⇒ Kêu gọi Quốc tế Cộng sản thừa nhận tổ chức của từng Đảng (lấy cờ đỏ búa liềm là Đảng kỳ).
-              </p>
-            </div>
+            <div className="text-6xl text-yellow-400 rotate-180">"</div>
           </div>
         </motion.div>
 
@@ -285,7 +200,7 @@ export default function HistoricalContextSection({ onNext, onBack, onGoToDashboa
             onClick={onNext}
             className="flex items-center px-8 py-3 bg-gradient-to-r from-yellow-500 to-red-500 hover:from-yellow-600 hover:to-red-600 rounded-full transition-all duration-300 font-semibold"
           >
-            Tiếp theo: Thành lập Đảng
+            Tiếp theo: Dòng thời gian
             <ArrowRight className="w-5 h-5 ml-2" />
           </button>
         </motion.div>

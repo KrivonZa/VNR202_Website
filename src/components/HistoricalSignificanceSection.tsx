@@ -14,86 +14,96 @@ interface Significance {
   color: string
 }
 
-const historicalSignificances: Significance[] = [
+const solutionMeasures: Significance[] = [
   {
-    id: 'end-crisis',
-    title: 'Chấm dứt khủng hoảng về đường lối cứu nước',
-    description: 'Kết thúc tình trạng thiếu đường lối đúng đắn trong phong trào yêu nước',
+    id: 'fight-hunger',
+    title: 'Chống giặc đói',
+    description: 'Phát động phong trào "Ngày đồng tâm" và tăng gia sản xuất',
     details: [
-      'Trước 1930: Phong trào yêu nước lâm vào bế tắc',
-      'Các phong trào cũ đều thất bại',
-      'Thiếu lý luận khoa học chỉ đạo',
-      'Đảng ra đời mở ra bước ngoặt vĩ đại'
+      'Phong trào "Ngày đồng tâm": mỗi người nhịn một bữa cơm để cứu đói',
+      'Thành lập Hội Cứu đói (2/11/1945)',
+      'Ủy ban tối cao tiếp tế và cứu tế (28/11/1945)',
+      'Khuyến khích tăng gia sản xuất, khai hoang, trồng trọt',
+      'Giảm 20% thuế ruộng đất, miễn thuế cho vùng thiên tai'
     ],
-    icon: '🎯',
-    color: 'from-red-500 to-red-700'
-  },
-  {
-    id: 'historical-necessity',
-    title: 'Kết quả tất yếu của sự phát triển lịch sử',
-    description: 'Sự thống nhất của ba yếu tố: Mác-Lênin, phong trào công nhân, yêu nước',
-    details: [
-      'Chủ nghĩa Mác-Lênin truyền bá vào Việt Nam',
-      'Phong trào công nhân phát triển mạnh mẽ',
-      'Phong trào yêu nước có truyền thống lâu đời',
-      'Vai trò lãnh đạo của Nguyễn Ái Quốc'
-    ],
-    quote: 'Là sự thống nhất của ba yếu tố: Chủ nghĩa Mác-Lênin, Phong trào công nhân, Phong trào yêu nước Việt Nam',
-    icon: '⚡',
-    color: 'from-blue-500 to-blue-700'
-  },
-  {
-    id: 'working-class-role',
-    title: 'Khẳng định vai trò và bản lĩnh của giai cấp công nhân',
-    description: 'Chứng tỏ giai cấp vô sản Việt Nam đã trưởng thành và đủ sức lãnh đạo',
-    details: [
-      'Giai cấp công nhân đã có ý thức giai cấp',
-      'Có khả năng tổ chức và lãnh đạo',
-      'Đủ sức đảm nhận sứ mệnh lịch sử',
-      'Trở thành lực lượng tiên phong cách mạng'
-    ],
-    quote: 'Việc thành lập Đảng chứng tỏ rằng giai cấp vô sản ta đã trưởng thành và đủ sức lãnh đạo cách mạng - Chủ tịch Hồ Chí Minh',
-    icon: '💪',
+    quote: 'Chỉ sau vài tháng, sản lượng hoa màu tăng gấp 4 lần, nạn đói được đẩy lùi',
+    icon: '�',
     color: 'from-green-500 to-green-700'
   },
   {
-    id: 'revolutionary-thinking',
-    title: 'Bước ngoặt về tư duy cách mạng',
-    description: 'Cương lĩnh chính trị đầu tiên mang tính khoa học, đúng đắn',
+    id: 'fight-ignorance',
+    title: 'Chống giặc dốt',
+    description: 'Phát động phong trào xóa mù chữ toàn quốc',
     details: [
-      'Lần đầu có cương lĩnh khoa học',
-      'Phản ánh nhu cầu cấp bách của xã hội',
-      'Phù hợp xu thế thời đại',
-      'Vận dụng sáng tạo Mác-Lênin vào Việt Nam'
+      'Thành lập Nha Bình dân học vụ (8/9/1945)',
+      'Phát động phong trào xóa mù chữ trên toàn quốc',
+      'Mở hàng chục nghìn lớp học',
+      'Chỉ sau 1 năm có gần 2,5 triệu người biết đọc, biết viết',
+      'Cuộc cách mạng giáo dục đầu tiên trong lịch sử hiện đại Việt Nam'
     ],
-    icon: '🧠',
+    quote: 'Đây là cuộc cách mạng giáo dục đầu tiên trong lịch sử hiện đại Việt Nam',
+    icon: '📚',
+    color: 'from-blue-500 to-blue-700'
+  },
+  {
+    id: 'resist-invasion',
+    title: 'Chống giặc ngoại xâm',
+    description: 'Ban hành Chỉ thị "Kháng chiến kiến quốc"',
+    details: [
+      'Chỉ thị "Kháng chiến kiến quốc" (25/11/1945)',
+      'Kẻ thù chính: Thực dân Pháp xâm lược',
+      'Khẩu hiệu: "Dân tộc trên hết – Tổ quốc trên hết"',
+      'Củng cố chính quyền, chống xâm lược',
+      'Bài trừ nội phản, cải thiện đời sống nhân dân'
+    ],
+    quote: '"Dân tộc trên hết – Tổ quốc trên hết" - Khẩu hiệu kháng chiến',
+    icon: '⚔️',
+    color: 'from-red-500 to-red-700'
+  },
+  {
+    id: 'strengthen-government',
+    title: 'Củng cố chính quyền cách mạng',
+    description: 'Tổ chức Tổng tuyển cử và thành lập Chính phủ chính thức',
+    details: [
+      'Tổ chức Tổng tuyển cử (6/1/1946)',
+      'Bầu ra 333 đại biểu Quốc hội',
+      'Chính phủ chính thức thành lập (2/3/1946)',
+      'Hồ Chí Minh làm Chủ tịch',
+      'Hiến pháp đầu tiên (9/11/1946) ra đời'
+    ],
+    quote: 'Bản hiến pháp dân chủ đầu tiên của Việt Nam',
+    icon: '🏛️',
     color: 'from-purple-500 to-purple-700'
   },
   {
-    id: 'correct-path',
-    title: 'Xác định con đường cách mạng đúng đắn',
-    description: 'Con đường cách mạng vô sản là duy nhất đúng đắn cho dân tộc',
+    id: 'financial-solution',
+    title: 'Giải quyết khó khăn tài chính - "Tuần lễ vàng"',
+    description: 'Kêu gọi toàn dân đóng góp cho Quỹ Độc lập và Quỹ Quốc phòng',
     details: [
-      'Giải phóng dân tộc',
-      'Giải phóng giai cấp',
-      'Giải phóng con người',
-      'Phù hợp xu thế thời đại mới'
+      'Thu được 370kg vàng',
+      '20 triệu đồng cho Quỹ Độc lập',
+      '40 triệu đồng cho Quỹ bảo vệ Tổ quốc',
+      'Biểu tượng của tinh thần đoàn kết, yêu nước',
+      'Thể hiện tinh thần tự lực của nhân dân Việt Nam'
     ],
-    icon: '🛤️',
-    color: 'from-indigo-500 to-indigo-700'
+    quote: 'Biểu tượng của tinh thần đoàn kết, yêu nước, tự lực của nhân dân Việt Nam',
+    icon: '💰',
+    color: 'from-yellow-500 to-yellow-700'
   },
   {
-    id: 'great-significance',
-    title: 'Ý nghĩa lịch sử to lớn',
-    description: 'Mở ra kỷ nguyên mới: Độc lập dân tộc gắn liền với chủ nghĩa xã hội',
+    id: 'flexible-diplomacy',
+    title: 'Đường lối ngoại giao mềm dẻo',
+    description: 'Nhân nhượng có nguyên tắc để tránh thế "một cổ hai tròng"',
     details: [
-      'Đưa cách mạng Việt Nam sang thời kỳ mới',
-      'Đặt nền móng cho mọi thắng lợi',
-      'Trở thành nhân tố quyết định',
-      'Gắn với cách mạng vô sản thế giới'
+      'Với quân Tưởng: "Hoa – Việt thân thiện"',
+      'Nhượng bộ kinh tế để giữ hòa bình',
+      'Với Pháp: "Hòa để tiến" – nhân nhượng có nguyên tắc',
+      'Ký Hiệp định Sơ bộ 6/3/1946 và Tạm ước 14/9/1946',
+      'Kéo dài thời gian chuẩn bị cho kháng chiến lâu dài'
     ],
-    icon: '🌟',
-    color: 'from-yellow-500 to-yellow-700'
+    quote: '"Hòa để tiến" - nhân nhượng có nguyên tắc, để tránh thế "một cổ hai tròng"',
+    icon: '🤝',
+    color: 'from-indigo-500 to-indigo-700'
   }
 ]
 
@@ -121,16 +131,16 @@ export default function HistoricalSignificanceSection({ onNext, onBack, onGoToDa
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl font-bold text-white mb-4">Ý nghĩa lịch sử của việc thành lập Đảng</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">6 Nhiệm Vụ Cấp Bách Của Chính Phủ</h2>
         <p className="text-gray-300 text-lg">
-          Sự ra đời của Đảng Cộng sản Việt Nam mang ý nghĩa lịch sử to lớn
+          Biện pháp ứng phó và vượt qua những khó khăn sau ngày giành độc lập
         </p>
       </motion.div>
       <div className="flex justify-center items-center">
         <img src="/images/Chamdutkhunghoang.png" alt="Chamdutkhunghoang" className="w-96 h-auto rounded-xl" />
       </div>
       <div className="grid md:grid-cols-3 gap-6">
-        {historicalSignificances.slice(0, 3).map((significance, index) => (
+        {solutionMeasures.slice(0, 3).map((significance, index) => (
           <motion.div
             key={significance.id}
             initial={{ opacity: 0, y: 20 }}
@@ -149,7 +159,7 @@ export default function HistoricalSignificanceSection({ onNext, onBack, onGoToDa
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mt-6">
-        {historicalSignificances.slice(3, 6).map((significance, index) => (
+        {solutionMeasures.slice(3, 6).map((significance, index) => (
           <motion.div
             key={significance.id}
             initial={{ opacity: 0, y: 20 }}
@@ -176,14 +186,14 @@ export default function HistoricalSignificanceSection({ onNext, onBack, onGoToDa
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl font-bold text-white mb-4">Chi tiết các ý nghĩa lịch sử</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Chi Tiết Các Biện Pháp</h2>
         <p className="text-gray-300 text-lg">
           Phân tích sâu về từng ý nghĩa của việc thành lập Đảng
         </p>
       </motion.div>
 
       <div className="space-y-8">
-        {historicalSignificances.map((significance, index) => (
+        {solutionMeasures.map((significance, index) => (
           <motion.div
             key={significance.id}
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -359,10 +369,10 @@ export default function HistoricalSignificanceSection({ onNext, onBack, onGoToDa
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Ý nghĩa lịch sử của việc thành lập Đảng
+            Biện Pháp Vượt Qua Khó Khăn
           </h1>
           <p className="text-gray-300 text-xl">
-            Bước ngoặt vĩ đại trong lịch sử dân tộc Việt Nam
+            6 nhiệm vụ cấp bách được xác định ngay sau ngày độc lập (3/9/1945)
           </p>
         </motion.div>
 
@@ -441,7 +451,7 @@ export default function HistoricalSignificanceSection({ onNext, onBack, onGoToDa
                 onClick={onNext}
                 className="flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300"
               >
-                Tiếp tục
+                Tiếp theo: Kết quả đạt được
                 <ChevronRight className="w-5 h-5 ml-2" />
               </button>
             )}

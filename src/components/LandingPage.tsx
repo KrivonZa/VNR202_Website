@@ -11,8 +11,8 @@ interface LandingPageProps {
 export default function LandingPage({ onStartJourney }: LandingPageProps) {
   const [showButton, setShowButton] = useState(false)
 
-  const title = "Đảng Cộng Sản Việt Nam"
-  const subtitle = "Hành trình thành lập và phát triển của Đảng Cộng sản Việt Nam - Bước ngoặt vĩ đại của cách mạng Việt Nam"
+  const title = "Những Khó Khăn Của Việt Nam Sau Năm 1945"
+  const subtitle = 'Tìm hiểu về giai đoạn "Ngàn cân treo sợi tóc" - Những thử thách nghiêm trọng và cách vượt qua của dân tộc Việt Nam'
 
   const handleTypingComplete = () => {
     setShowButton(true)
@@ -155,7 +155,7 @@ export default function LandingPage({ onStartJourney }: LandingPageProps) {
             transition={{ duration: 1, delay: 1 }}
             className="text-yellow-200 text-lg mt-8 max-w-2xl mx-auto"
           >
-            Khám phá hành trình phát triển của Đảng Cộng sản Việt Nam từ các tiền nhân đến Chủ tịch Hồ Chí Minh
+            Khám phá giai đoạn lịch sử đầy thử thách từ năm 1945-1946 và bài học về bản lĩnh, trí tuệ của dân tộc Việt Nam
           </motion.p>
         )}
       </div>

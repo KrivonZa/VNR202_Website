@@ -16,70 +16,69 @@ export default function InteractiveTimelineSection({ onNext, onBack, onGoToDashb
 
   const events = [
     {
-      year: "1911",
-      title: "Nguyễn Ái Quốc ra đi tìm đường cứu nước",
-      location: "Sài Gòn - Paris",
-      description: "Nguyễn Tất Thành (sau này là Hồ Chí Minh) rời Việt Nam, bắt đầu hành trình tìm hiểu các tư tưởng cách mạng tiến bộ trên thế giới.",
-      significance: "Khởi đầu cho việc tiếp thu tư tưởng Mác-Lênin",
-      color: "from-blue-500 to-cyan-500",
-      icon: <MapPin className="w-6 h-6" />,
-      imageSrc: "/images/1911.jpg",
-      imageAlt: "Hình ảnh năm 1911 - Nguyễn Ái Quốc ra đi tìm đường cứu nước"
-    },
-    {
-      year: "1920",
-      title: "Tham gia Đảng Cộng sản Pháp",
-      location: "Paris, Pháp",
-      description: "Nguyễn Ái Quốc trở thành một trong những người sáng lập Đảng Cộng sản Pháp, chính thức theo chủ nghĩa Mác-Lênin.",
-      significance: "Bước ngoặt trong tư tưởng cách mạng",
-      color: "from-red-500 to-pink-500",
-      icon: <Star className="w-6 h-6" />,
-      imageSrc: "/images/1920.jpg",
-      imageAlt: "Hình ảnh năm 1920 - Tham gia Đảng Cộng sản Pháp"
-    },
-    {
-      year: "1925",
-      title: "Thành lập Hội Việt Nam Cách mạng Thanh niên",
-      location: "Quảng Châu, Trung Quốc",
-      description: "Tổ chức tiền thân của Đảng Cộng sản Việt Nam được thành lập, đào tạo cán bộ cách mạng cho Việt Nam.",
-      significance: "Chuẩn bị lực lượng cho việc thành lập Đảng",
+      year: "2/9/1945",
+      title: "Tuyên bố độc lập - Nước Việt Nam Dân chủ Cộng hòa ra đời",
+      location: "Ba Đình, Hà Nội",
+      description: "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn độc lập, tuyên bố thành lập nước Việt Nam Dân chủ Cộng hòa - nhà nước công nông đầu tiên ở Đông Nam Á.",
+      significance: "Đất nước độc lập nhưng vô cùng mong manh, chưa được quốc tế công nhận",
       color: "from-green-500 to-emerald-500",
-      icon: <Users className="w-6 h-6" />,
-      imageSrc: "/images/1925.jpeg",
-      imageAlt: "Hình ảnh năm 1925 - Thành lập Hội Việt Nam Cách mạng Thanh niên"
-    },
-    {
-      year: "1929",
-      title: "Ba tổ chức cộng sản xuất hiện",
-      location: "Việt Nam",
-      description: "23/12/1929: Nguyễn Ái Quốc - với tư cách là phái viên quốc tế của Cộng Sản đến Hồng Kông triệu tập đại biểu của Đông Dương Cộng sản Đảng và An Nam Cộng sản Đảng đến hợp tại Cửu Long tiến hành hội nghị hợp nhất các tổ chức cộng sản thành một chính đảng duy nhất của Việt Nam (6/1 - 7/2/1930) (sau này Đảng quyết định lấy ngày 3 tháng 2 dương lịch làm ngày kỷ niệm thành lập Đảng)",
-      significance: "24/2/1930 Hoàn thành thống nhất thành một chính đảng duy nhất, chấp nhận Đông Dương Cộng sản liên đoàn gia nhập Đảng Cộng sản Việt Nam",
-      color: "from-yellow-500 to-orange-500",
-      icon: <Calendar className="w-6 h-6" />,
-      imageSrc: "/images/1929.webp",
-      imageAlt: "Hình ảnh năm 1929 - Ba tổ chức cộng sản xuất hiện"
-    },
-    {
-      year: "3/2/1930",
-      title: "Hội nghị thống nhất tại Hồng Kông",
-      location: "Hồng Kông",
-      description: "Nguyễn Ái Quốc chủ trì hội nghị thống nhất ba tổ chức cộng sản thành Đảng Cộng sản Việt Nam.",
-      significance: "Ngày thành lập Đảng Cộng sản Việt Nam",
-      color: "from-purple-500 to-indigo-500",
       icon: <Star className="w-6 h-6" />,
-      imageSrc: "/images/3_2_1930.jpg",
-      imageAlt: "Hình ảnh 3/2/1930 - Hội nghị thống nhất tại Hồng Kông"
+      imageSrc: "/images/2-9-1945.jpg",
+      imageAlt: "Hình ảnh 2/9/1945 - Tuyên bố độc lập"
     },
     {
-      year: "10/1930",
-      title: "Đổi tên thành Đảng Cộng sản Đông Dương",
-      location: "Việt Nam",
-      description: "Theo chỉ thị của Quốc tế Cộng sản, Đảng đổi tên để phù hợp với phạm vi hoạt động rộng lớn hơn.",
-      significance: "Mở rộng tầm ảnh hưởng ra toàn Đông Dương",
-      color: "from-teal-500 to-blue-500",
-      icon: <Clock className="w-6 h-6" />,
-      imageSrc: "/images/10_1930.webp",
-      imageAlt: "Hình ảnh 10/1930 - Đổi tên thành Đảng Cộng sản Đông Dương"
+      year: "9/1945",
+      title: "Quân Tưởng Giới Thạch và Anh xâm nhập",
+      location: "Bắc Bộ và Nam Bộ",
+      description: "20 vạn quân Tưởng Giới Thạch tràn vào Bắc Bộ với danh nghĩa giải giáp quân Nhật. 1 vạn quân Anh kéo vào Nam Bộ, tạo điều kiện cho Pháp quay lại.",
+      significance: "Đất nước bị bao vây bốn phía, không có đồng minh quốc tế",
+      color: "from-red-500 to-orange-500",
+      icon: <MapPin className="w-6 h-6" />,
+      imageSrc: "/images/quan-tuong-1945.jpg",
+      imageAlt: "Hình ảnh tháng 9/1945 - Quân nước ngoài xâm nhập"
+    },
+    {
+      year: "11/1945",
+      title: "Thành lập các tổ chức cứu đói và giáo dục",
+      location: "Toàn quốc",
+      description: "Thành lập Hội Cứu đói (2/11/1945), Ủy ban tối cao tiếp tế (28/11/1945), và Nha Bình dân học vụ (8/9/1945) để chống 'giặc đói' và 'giặc dốt'.",
+      significance: "Những biện pháp cấp bách để giải quyết nạn đói và mù chữ",
+      color: "from-blue-500 to-cyan-500",
+      icon: <Users className="w-6 h-6" />,
+      imageSrc: "/images/cuu-doi-1945.jpg",
+      imageAlt: "Hình ảnh tháng 11/1945 - Các tổ chức cứu đói"
+    },
+    {
+      year: "25/11/1945",
+      title: "Chỉ thị 'Kháng chiến kiến quốc'",
+      location: "Hà Nội",
+      description: "Ban hành chỉ thị với khẩu hiệu 'Dân tộc trên hết - Tổ quốc trên hết', xác định kẻ thù chính là thực dân Pháp xâm lược.",
+      significance: "Định hướng đường lối kháng chiến và xây dựng đất nước",
+      color: "from-purple-500 to-indigo-500",
+      icon: <Calendar className="w-6 h-6" />,
+      imageSrc: "/images/khang-chien-kien-quoc.jpg",
+      imageAlt: "Hình ảnh 25/11/1945 - Chỉ thị Kháng chiến kiến quốc"
+    },
+    {
+      year: "6/1/1946",
+      title: "Tổng tuyển cử đầu tiên",
+      location: "Toàn quốc",
+      description: "Tổ chức Tổng tuyển cử bầu ra 333 đại biểu Quốc hội đầu tiên của nước Việt Nam Dân chủ Cộng hòa.",
+      significance: "Củng cố chính quyền cách mạng, thể hiện ý chí dân chủ",
+      color: "from-green-500 to-teal-500",
+      icon: <Star className="w-6 h-6" />,
+      imageSrc: "/images/tong-tuyen-cu-1946.jpg",
+      imageAlt: "Hình ảnh 6/1/1946 - Tổng tuyển cử đầu tiên"
+    },
+    {
+      year: "6/3/1946",
+      title: "Hiệp định Sơ bộ Pháp-Việt",
+      location: "Hà Nội",
+      description: "Ký hiệp định với Pháp theo đường lối 'Hòa để tiến' - nhân nhượng có nguyên tắc để tránh thế 'một cổ hai tròng' và chuẩn bị lực lượng.",
+      significance: "Ngoại giao mềm dẻo, kéo dài thời gian chuẩn bị kháng chiến",
+      color: "from-yellow-500 to-orange-500",
+      imageSrc: "/images/hiep-dinh-so-bo-1946.jpg",
+      imageAlt: "Hình ảnh 6/3/1946 - Hiệp định Sơ bộ Pháp-Việt"
     }
   ]
 
@@ -119,11 +118,11 @@ export default function InteractiveTimelineSection({ onNext, onBack, onGoToDashb
           <div className="flex items-center justify-center mb-6">
             <Clock className="w-8 h-8 mr-3 text-blue-400" />
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Timeline Tương Tác
+              Dòng Thời Gian Khó Khăn
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-            Hành trình hình thành Đảng Cộng sản Việt Nam (1911-1930)
+            Giai đoạn "Ngàn cân treo sợi tóc" (1945-1946)
           </p>
         </motion.div>
 
@@ -296,7 +295,7 @@ export default function InteractiveTimelineSection({ onNext, onBack, onGoToDashb
             onClick={onNext}
             className="flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full transition-all duration-300 font-semibold"
           >
-            Tiếp theo: Kiểm tra kiến thức
+            Tiếp theo: Khó khăn ngoại tại
             <ArrowRight className="w-5 h-5 ml-2" />
           </button>
         </motion.div>

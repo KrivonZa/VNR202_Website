@@ -23,75 +23,75 @@ interface PredecessorOrg {
   color: string
 }
 
-const historicalContexts: HistoricalContext[] = [
+const externalChallenges: HistoricalContext[] = [
   {
-    id: 'economic-crisis',
-    title: 'Khủng hoảng kinh tế thế giới 1929-1933',
-    description: 'Ảnh hưởng nghiêm trọng đến Đông Dương',
+    id: 'chinese-forces',
+    title: 'Quân Tưởng Giới Thạch (Phía Bắc)',
+    description: '20 vạn quân tràn vào với danh nghĩa giải giáp quân Nhật',
     details: [
-      'Làm gia tăng mâu thuẫn xã hội',
-      'Tình trạng thất nghiệp gia tăng',
-      'Giá cả hàng hóa giảm mạnh',
-      'Nông dân phá sản hàng loạt'
+      'Đi cùng các tổ chức Việt Quốc, Việt Cách',
+      'Âm mưu lật đổ chính quyền cách mạng',
+      'Kiểm soát các tuyến giao thông quan trọng',
+      'Uy hiếp an ninh chính trị Bắc Bộ'
     ],
-    icon: '📉',
+    icon: '🪖',
     color: 'from-red-500 to-red-700'
   },
   {
-    id: 'revolutionary-movement',
-    title: 'Phong trào cách mạng trong nước',
-    description: 'Các tổ chức cộng sản địa phương phát triển mạnh mẽ',
+    id: 'british-forces',
+    title: 'Quân Anh (Phía Nam)',
+    description: '1 vạn quân kéo vào, tạo điều kiện cho Pháp quay lại',
     details: [
-      'Thiếu sự thống nhất trong tổ chức',
-      'Cần có sự lãnh đạo tập trung',
-      'Phong trào công nhân ngày càng mạnh',
-      'Ý thức giai cấp được nâng cao'
+      'Xâm lược Nam Bộ trước tiên',
+      'Hỗ trợ Pháp tái chiếm Đông Dương',
+      'Kiểm soát các cảng biển quan trọng',
+      'Thành lập chính quyền tay sai'
     ],
-    icon: '✊',
+    icon: '🇬🇧',
     color: 'from-orange-500 to-orange-700'
   },
   {
-    id: 'world-trend',
-    title: 'Xu thế cách mạng thế giới',
-    description: 'Ảnh hưởng của Cách mạng Tháng Mười Nga',
+    id: 'japanese-forces',
+    title: 'Quân Nhật (Toàn quốc)',
+    description: 'Hơn 6 vạn quân vẫn chưa giải giáp hoàn toàn',
     details: [
-      'Phong trào cộng sản quốc tế phát triển',
-      'Chủ nghĩa Mác-Lênin lan rộng',
-      'Các nước thuộc địa đấu tranh giải phóng',
-      'Xu thế giải phóng dân tộc mạnh mẽ'
+      'Tiềm ẩn nguy cơ bạo loạn bất cứ lúc nào',
+      'Vẫn kiểm soát một số khu vực',
+      'Có thể liên kết với các thế lực thù địch',
+      'Tạo bất ổn về an ninh quốc phòng'
     ],
-    icon: '🌍',
+    icon: '🇯�',
     color: 'from-blue-500 to-blue-700'
   }
 ]
 
-const predecessorOrgs: PredecessorOrg[] = [
+const invasionForces: PredecessorOrg[] = [
   {
-    id: 'dong-duong-cong-san-dang',
-    name: 'Đông Dương Cộng sản Đảng',
-    foundedDate: 'Tháng 6/1929',
-    founder: 'Trần Phú',
-    location: 'Hà Nội',
-    description: 'Tổ chức cộng sản đầu tiên tại Bắc Kỳ, có ảnh hưởng mạnh trong phong trào công nhân',
-    color: 'from-green-500 to-green-700'
-  },
-  {
-    id: 'an-nam-cong-san-dang',
-    name: 'An Nam Cộng sản Đảng',
-    foundedDate: 'Năm 1929',
-    founder: 'Hồ Tùng Mậu',
-    location: 'Trung Kỳ',
-    description: 'Hoạt động chủ yếu ở miền Trung, tập hợp nhiều trí thức yêu nước',
-    color: 'from-purple-500 to-purple-700'
-  },
-  {
-    id: 'dong-duong-cong-san-lien-doan',
-    name: 'Đông Dương Cộng sản Liên đoàn',
-    foundedDate: 'Năm 1929',
-    founder: 'Nguyễn Ái Quốc chỉ đạo',
-    location: 'Nam Kỳ',
-    description: 'Được thành lập dưới sự chỉ đạo trực tiếp của Nguyễn Ái Quốc',
+    id: 'chinese-nationalist-army',
+    name: '20 vạn quân Tưởng Giới Thạch',
+    foundedDate: 'Tháng 9/1945',
+    founder: 'Chính quyền Trung Hoa Dân Quốc',
+    location: 'Bắc Bộ (vĩ tuyến 16 trở lên)',
+    description: 'Quân đội Trung Quốc Quốc dân đảng với danh nghĩa giải giáp quân Nhật nhưng thực chất muốn kiểm soát Việt Nam',
     color: 'from-red-500 to-red-700'
+  },
+  {
+    id: 'british-army',
+    name: '1 vạn quân Anh',
+    foundedDate: 'Tháng 9/1945',
+    founder: 'Chính quyền Anh',
+    location: 'Nam Bộ (vĩ tuyến 16 trở xuống)',
+    description: 'Quân đội Anh chiếm Nam Bộ, tạo điều kiện cho thực dân Pháp quay trở lại xâm lược Việt Nam',
+    color: 'from-orange-500 to-orange-700'
+  },
+  {
+    id: 'japanese-army',
+    name: 'Hơn 6 vạn quân Nhật',
+    foundedDate: 'Từ trước 1945',
+    founder: 'Đế quốc Nhật Bản',
+    location: 'Toàn quốc',
+    description: 'Quân đội Nhật Bản vẫn chưa giải giáp hoàn toàn, tiềm ẩn nguy cơ bạo loạn và bất ổn',
+    color: 'from-blue-500 to-blue-700'
   }
 ]
 
@@ -112,10 +112,10 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
   }, [currentStep])
 
   const steps = [
-    'Bối cảnh lịch sử',
-    'Các tổ chức tiền thân',
-    'Hội nghị thống nhất',
-    'Ý nghĩa lịch sử'
+    'Thù trong, giặc ngoài',
+    'Các thế lực ngoại xâm',
+    'Bao vây bốn phía',
+    'Hệ quả nghiêm trọng'
   ]
 
   const renderHistoricalContext = () => (
@@ -125,14 +125,14 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl font-bold text-white mb-4">Bối cảnh lịch sử trước năm 1930</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Những Khó Khăn Ngoại Tại - "Thù Trong, Giặc Ngoài"</h2>
         <p className="text-gray-300 text-lg">
-          Những yếu tố lịch sử tạo điều kiện cho sự ra đời của Đảng Cộng sản Việt Nam
+          Các thế lực nước ngoài đe dọa nền độc lập non trẻ của Việt Nam
         </p>
       </motion.div>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {historicalContexts.map((context, index) => (
+        {externalChallenges.map((context, index) => (
           <motion.div
             key={context.id}
             initial={{ opacity: 0, y: 20 }}
@@ -183,14 +183,14 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl font-bold text-white mb-4">Các tổ chức tiền thân</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Các Thế Lực Ngoại Xâm</h2>
         <p className="text-gray-300 text-lg">
-          Ba tổ chức cộng sản địa phương được thành lập trước khi thống nhất thành Đảng
+          Những lực lượng quân sự nước ngoài đe dọa nền độc lập non trẻ
         </p>
       </motion.div>
 
       <div className="space-y-6">
-        {predecessorOrgs.map((org, index) => (
+        {invasionForces.map((org, index) => (
           <motion.div
             key={org.id}
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -412,10 +412,10 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Thành lập Đảng Cộng sản Việt Nam
+            Khó Khăn Ngoại Tại
           </h1>
           <p className="text-gray-300 text-xl">
-            Quá trình hình thành và phát triển (1930)
+            "Thù trong, giặc ngoài" - Các thế lực đe dọa từ bên ngoài (1945-1946)
           </p>
         </motion.div>
 
@@ -493,7 +493,7 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
                 onClick={onNext}
                 className="flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-300"
               >
-                Tiếp tục
+                Tiếp theo: Khó khăn nội tại
                 <ChevronRight className="w-5 h-5 ml-2" />
               </button>
             )}

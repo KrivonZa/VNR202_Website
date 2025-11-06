@@ -23,10 +23,10 @@ export default function Home() {
 
   const goToHistoricalContext = () => setCurrentSection('historical-context')
   const goToTimeline = () => setCurrentSection('timeline')
-  const goToPartyFormation = () => setCurrentSection('party-formation')
-  const goToPlatform = () => setCurrentSection('platform')
-  const goToHistoricalSignificance = () => setCurrentSection('historical-significance')
-  const goToInevitability = () => setCurrentSection('inevitability')
+  const goToExternalChallenges = () => setCurrentSection('external-challenges')
+  const goToInternalChallenges = () => setCurrentSection('internal-challenges')
+  const goToSolutions = () => setCurrentSection('solutions')
+  const goToResults = () => setCurrentSection('results')
   const goToBreakthrough = () => setCurrentSection('breakthrough')
   const goToQuiz = () => setCurrentSection('quiz')
   const goToSharing = () => setCurrentSection('sharing')
@@ -49,43 +49,43 @@ export default function Home() {
       )}
       {currentSection === 'timeline' && (
         <InteractiveTimelineSection 
-          onNext={goToPartyFormation}
+          onNext={goToExternalChallenges}
           onBack={goToHistoricalContext}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'party-formation' && (
+      {currentSection === 'external-challenges' && (
         <PartyFormationSection 
-          onNext={goToPlatform}
+          onNext={goToInternalChallenges}
           onBack={goToTimeline}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'platform' && (
+      {currentSection === 'internal-challenges' && (
         <PlatformSection 
-          onNext={goToHistoricalSignificance}
-          onBack={goToPartyFormation}
+          onNext={goToSolutions}
+          onBack={goToExternalChallenges}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'historical-significance' && (
+      {currentSection === 'solutions' && (
         <HistoricalSignificanceSection 
-          onNext={goToInevitability}
-          onBack={goToPlatform}
+          onNext={goToResults}
+          onBack={goToInternalChallenges}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'inevitability' && (
+      {currentSection === 'results' && (
         <InevitabilitySection 
           onNext={goToBreakthrough}
-          onBack={goToHistoricalSignificance}
+          onBack={goToSolutions}
           onGoToDashboard={goToDashboard}
         />
       )}
       {currentSection === 'breakthrough' && (
         <BreakthroughSection 
           onNext={goToQuiz}
-          onBack={goToInevitability}
+          onBack={goToResults}
           onGoToDashboard={goToDashboard}
         />
       )}

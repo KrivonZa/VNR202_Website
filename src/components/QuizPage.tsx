@@ -21,123 +21,122 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    question: "Đảng Cộng sản Việt Nam được thành lập vào ngày nào?",
+    question: "Nước Việt Nam Dân chủ Cộng hòa được tuyên bố thành lập vào ngày nào?",
     options: [
-      "3/2/1930",
-      "19/5/1930", 
       "2/9/1945",
-      "19/8/1945"
+      "19/8/1945", 
+      "25/8/1945",
+      "30/8/1945"
     ],
     correctAnswer: 0,
-    explanation: "Đảng Cộng sản Việt Nam được thành lập ngày 3/2/1930 tại Hội nghị thống nhất ở Hồng Kông do Nguyễn Ái Quốc chủ trì."
+    explanation: "Nước Việt Nam Dân chủ Cộng hòa được tuyên bố thành lập ngày 2/9/1945 tại Quảng trường Ba Đình, Hà Nội."
   },
   {
     id: 2,
-    question: "Ai là người chủ trì Hội nghị thống nhất thành lập Đảng Cộng sản Việt Nam?",
+    question: 'Cụm từ nào mô tả chính xác tình thế của Việt Nam sau khi giành độc lập?',
     options: [
-      "Hồ Chí Minh",
-      "Nguyễn Ái Quốc",
-      "Trần Phú",
-      "Lê Hồng Phong"
+      '"Ngàn cân treo sợi tóc"',
+      '"Độc lập tự do"',
+      '"Hòa bình thống nhất"',
+      '"Dân giàu nước mạnh"'
     ],
-    correctAnswer: 1,
-    explanation: "Nguyễn Ái Quốc (sau này là Hồ Chí Minh) đã chủ trì Hội nghị thống nhất ba tổ chức cộng sản thành Đảng Cộng sản Việt Nam."
+    correctAnswer: 0,
+    explanation: 'Cụm từ "Ngàn cân treo sợi tóc" phản ánh chính xác tình thế hiểm nghèo của Việt Nam sau khi giành độc lập.'
   },
   {
     id: 3,
-    question: "Cương lĩnh chính trị đầu tiên của Đảng được thông qua vào thời gian nào?",
+    question: "Có bao nhiêu vạn quân Tưởng Giới Thạch tràn vào Bắc Bộ sau năm 1945?",
     options: [
-      "Tháng 2/1930",
-      "Tháng 10/1930",
-      "Tháng 3/1930",
-      "Tháng 5/1930"
+      "10 vạn",
+      "15 vạn",
+      "20 vạn",
+      "25 vạn"
     ],
-    correctAnswer: 0,
-    explanation: "Cương lĩnh chính trị đầu tiên của Đảng được thông qua vào tháng 2/1930, ngay sau khi Đảng được thành lập."
+    correctAnswer: 2,
+    explanation: "20 vạn quân Tưởng Giới Thạch tràn vào Bắc Bộ với danh nghĩa giải giáp quân Nhật."
   },
   {
     id: 4,
-    question: "Ba tổ chức cộng sản tiền thân của Đảng Cộng sản Việt Nam là:",
+    question: "Ngân khố quốc gia Việt Nam sau khi độc lập chỉ còn bao nhiêu tiền?",
     options: [
-      "Đảng Cộng sản Việt Nam, Đảng Cộng sản Đông Dương, Đảng Cộng sản Đông Dương Liên hiệp",
-      "Hội Việt Nam Cách mạng Thanh niên, Đảng Cộng sản Việt Nam, Đảng Cộng sản Đông Dương",
-      "Đảng Cộng sản Đông Dương, Đảng Cộng sản Pháp, Đảng Cộng sản Việt Nam",
-      "Hội Việt Nam Cách mạng Thanh niên, Đảng Cộng sản Đông Dương Liên hiệp, Đảng Cộng sản Pháp"
+      "500.000 đồng Đông Dương",
+      "1,2 triệu đồng Đông Dương",
+      "2 triệu đồng Đông Dương",
+      "5 triệu đồng Đông Dương"
     ],
-    correctAnswer: 0,
-    explanation: "Ba tổ chức cộng sản được thống nhất là: Đảng Cộng sản Việt Nam, Đảng Cộng sản Đông Dương và Đảng Cộng sản Đông Dương Liên hiệp."
+    correctAnswer: 1,
+    explanation: "Ngân khố quốc gia trống rỗng, chỉ còn khoảng 1,2 triệu đồng Đông Dương, quá nửa là tiền rách."
   },
   {
     id: 5,
-    question: "Yếu tố nào KHÔNG phải là nguyên nhân khách quan dẫn đến sự ra đời của Đảng Cộng sản Việt Nam?",
+    question: "Tỷ lệ dân số mù chữ ở Việt Nam năm 1945 là bao nhiêu?",
     options: [
-      "Sự phát triển của giai cấp công nhân Việt Nam",
-      "Khủng hoảng về đường lối cứu nước của các phong trào yêu nước cũ",
-      "Ảnh hưởng của Cách mạng Tháng Mười Nga",
-      "Sự can thiệp của các nước phương Tây"
+      "Hơn 70%",
+      "Hơn 80%",
+      "Hơn 90%",
+      "Gần 100%"
     ],
-    correctAnswer: 3,
-    explanation: "Sự can thiệp của các nước phương Tây không phải là nguyên nhân khách quan dẫn đến sự ra đời của Đảng."
+    correctAnswer: 2,
+    explanation: "Hơn 90% dân số mù chữ, do chính sách ngu dân của thực dân Pháp."
   },
   {
     id: 6,
-    question: "Đặc điểm nào KHÔNG phải của Cương lĩnh chính trị đầu tiên của Đảng?",
+    question: "6 nhiệm vụ cấp bách được xác định ngay sau ngày độc lập bao gồm những gì?",
     options: [
-      "Tính khoa học",
-      "Tính dân tộc", 
-      "Tính thời đại",
-      "Tính khu vực"
+      "Chống giặc đói, chống giặc dốt, chống giặc ngoại xâm",
+      "Xây dựng quân đội, phát triển kinh tế, giáo dục",
+      "Thành lập chính phủ, ban hành hiến pháp, tổ chức bầu cử",
+      "Đối ngoại, quốc phòng, an ninh"
     ],
-    correctAnswer: 3,
-    explanation: "Ba đặc điểm của Cương lĩnh chính trị đầu tiên là: tính khoa học, tính dân tộc và tính thời đại."
+    correctAnswer: 0,
+    explanation: "6 nhiệm vụ cấp bách bao gồm: chống giặc đói, chống giặc dốt, chống giặc ngoại xâm, củng cố chính quyền, giải quyết tài chính, ngoại giao mềm dẻo."
   },
   {
     id: 7,
-    question: "Hội Việt Nam Cách mạng Thanh niên được thành lập vào năm nào?",
+    question: "Phong trào 'Ngày đồng tâm' có ý nghĩa gì?",
     options: [
-      "1925",
-      "1926",
-      "1927", 
-      "1929"
+      "Toàn dân đóng góp vàng cho quỹ quốc gia",
+      "Mọi người cùng học xóa mù chữ",
+      "Cả nước cùng kháng chiến"
     ],
     correctAnswer: 0,
-    explanation: "Hội Việt Nam Cách mạng Thanh niên được thành lập năm 1925 tại Quảng Châu, Trung Quốc."
+    explanation: "Phong trào 'Ngày đồng tâm' có nghĩa là mỗi người nhịn một bữa cơm để cứu đói cho người khó khăn."
   },
   {
     id: 8,
-    question: "Nhiệm vụ cách mạng dân tộc dân chủ trong Cương lĩnh đầu tiên bao gồm:",
+    question: "Tuần lễ vàng đã thu được bao nhiêu vàng cho Quỹ Độc lập?",
     options: [
-      "Chỉ đánh đổ đế quốc Pháp",
-      "Đánh đổ đế quốc Pháp và phong kiến Việt Nam, thành lập chính phủ công nông binh",
-      "Chỉ thành lập chính phủ công nông binh",
-      "Chỉ tịch thu ruộng đất của địa chủ"
+      "270kg vàng",
+      "370kg vàng",
+      "470kg vàng",
+      "570kg vàng"
     ],
     correctAnswer: 1,
-    explanation: "Nhiệm vụ cách mạng dân tộc dân chủ bao gồm đánh đổ đế quốc Pháp và phong kiến Việt Nam, thành lập chính phủ công nông binh."
+    explanation: "Tuần lễ vàng đã thu được 370kg vàng, 20 triệu đồng cho Quỹ Độc lập và 40 triệu đồng cho Quỹ bảo vệ Tổ quốc."
   },
   {
     id: 9,
-    question: "Tháng 10/1930, Đảng Cộng sản Việt Nam đổi tên thành:",
+    question: "Tổng tuyển cử đầu tiên của Việt Nam diễn ra vào ngày nào?",
     options: [
-      "Đảng Cộng sản Đông Dương",
-      "Đảng Lao động Việt Nam",
-      "Đảng Cộng sản Việt Nam Đông Dương",
-      "Đảng Cách mạng Việt Nam"
+      "6/1/1946",
+      "2/3/1946",
+      "6/3/1946",
+      "9/11/1946"
     ],
     correctAnswer: 0,
-    explanation: "Tháng 10/1930, theo chỉ thị của Quốc tế Cộng sản, Đảng đổi tên thành Đảng Cộng sản Đông Dương."
+    explanation: "Tổng tuyển cử đầu tiên diễn ra ngày 6/1/1946, bầu ra 333 đại biểu Quốc hội đầu tiên."
   },
   {
     id: 10,
-    question: "Ý nghĩa lịch sử của việc thành lập Đảng Cộng sản Việt Nam là:",
+    question: "Ý nghĩa lịch sử của việc vượt qua giai đoạn 'Ngàn cân treo sợi tóc' là:",
     options: [
-      "Chỉ thống nhất các tổ chức cộng sản",
-      "Bước ngoặt vĩ đại của cách mạng Việt Nam, mở ra kỷ nguyên mới",
-      "Chỉ tạo ra tổ chức chính trị mới",
-      "Chỉ có ý nghĩa với giai cấp công nhân"
+      "Chỉ giữ được nền độc lập",
+      "Đặt nền móng vững chắc cho kháng chiến và xây dựng đất nước",
+      "Chỉ xây dựng được bộ máy nhà nước",
+      "Chỉ huy động được sức mạnh toàn dân"
     ],
     correctAnswer: 1,
-    explanation: "Sự ra đời của Đảng là bước ngoặt vĩ đại của cách mạng Việt Nam, mở ra kỷ nguyên mới cho dân tộc Việt Nam."
+    explanation: "Việc vượt qua khó khăn đã đặt nền móng vững chắc cho cuộc kháng chiến chống Pháp và sự nghiệp xây dựng đất nước sau này."
   }
 ]
 
@@ -243,7 +242,7 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
             </motion.div>
 
             <h1 className="text-3xl font-bold text-white mb-4">
-              Kết quả Quiz
+              Kết Quả Kiểm Tra Kiến Thức
             </h1>
 
             <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-3">
