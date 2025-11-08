@@ -2,15 +2,22 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Users, MapPin, Star, ChevronRight, ChevronLeft, BookOpen, Target } from 'lucide-react'
+// ✅ Thêm các icon mới
+import {
+  Calendar, Users, MapPin, Star, ChevronRight, ChevronLeft, BookOpen, Target,
+  Anchor, ShieldAlert, Globe, TrendingUp, Map, AlertTriangle, Building, Banknote,
+  ArrowRight,
+  ArrowLeft
+} from 'lucide-react'
+import React from 'react'
 
 interface HistoricalContext {
   id: string
   title: string
   description: string
   details: string[]
-  icon: string
-  color: string
+  icon: React.ElementType
+  color: string // Vẫn giữ lại nếu bạn muốn dùng sau, nhưng hiện tại không dùng
 }
 
 interface PredecessorOrg {
@@ -20,9 +27,10 @@ interface PredecessorOrg {
   founder: string
   location: string
   description: string
-  color: string
+  color: string // Vẫn giữ lại nếu bạn muốn dùng sau, nhưng hiện tại không dùng
 }
 
+// ✅ Cập nhật data với icon từ Lucide
 const externalChallenges: HistoricalContext[] = [
   {
     id: 'chinese-forces',
@@ -34,7 +42,7 @@ const externalChallenges: HistoricalContext[] = [
       'Kiểm soát các tuyến giao thông quan trọng',
       'Uy hiếp an ninh chính trị Bắc Bộ'
     ],
-    icon: '🪖',
+    icon: Users,
     color: 'from-red-500 to-red-700'
   },
   {
@@ -47,7 +55,7 @@ const externalChallenges: HistoricalContext[] = [
       'Kiểm soát các cảng biển quan trọng',
       'Thành lập chính quyền tay sai'
     ],
-    icon: '🇬🇧',
+    icon: Anchor,
     color: 'from-orange-500 to-orange-700'
   },
   {
@@ -60,11 +68,12 @@ const externalChallenges: HistoricalContext[] = [
       'Có thể liên kết với các thế lực thù địch',
       'Tạo bất ổn về an ninh quốc phòng'
     ],
-    icon: '🇯�',
+    icon: ShieldAlert,
     color: 'from-blue-500 to-blue-700'
   }
 ]
 
+// (Dữ liệu invasionForces giữ nguyên)
 const invasionForces: PredecessorOrg[] = [
   {
     id: 'chinese-nationalist-army',
@@ -106,7 +115,6 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
   const [selectedContext, setSelectedContext] = useState<string | null>(null)
   const [selectedOrg, setSelectedOrg] = useState<string | null>(null)
 
-  // Scroll to top when currentStep changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [currentStep])
@@ -118,63 +126,80 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
     'Hệ quả nghiêm trọng'
   ]
 
-  const renderHistoricalContext = () => (
-    <div className="space-y-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-8"
-      >
-        <h2 className="text-3xl font-bold text-white mb-4">Những Khó Khăn Ngoại Tại - "Thù Trong, Giặc Ngoài"</h2>
-        <p className="text-gray-300 text-lg">
-          Các thế lực nước ngoài đe dọa nền độc lập non trẻ của Việt Nam
-        </p>
-      </motion.div>
+  // ✅ Đã BỎ hàm getBorderColor
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {externalChallenges.map((context, index) => (
-          <motion.div
-            key={context.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            className={`bg-gradient-to-br ${context.color} rounded-xl p-6 cursor-pointer transform hover:scale-105 transition-all duration-300 ${
-              selectedContext === context.id ? 'ring-4 ring-white' : ''
-            }`}
-            onClick={() => setSelectedContext(selectedContext === context.id ? null : context.id)}
-          >
-            <div className="text-4xl mb-4">{context.icon}</div>
-            <h3 className="text-xl font-bold text-white mb-2">{context.title}</h3>
-            <p className="text-gray-200 text-sm mb-4">{context.description}</p>
-            
-            <AnimatePresence>
-              {selectedContext === context.id && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="mt-4 space-y-2"
-                >
-                  {context.details.map((detail, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="flex items-center text-white text-sm"
-                    >
-                      <ChevronRight className="w-4 h-4 mr-2" />
-                      {detail}
-                    </motion.div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        ))}
+  const renderHistoricalContext = () => {
+    // ✅ Helper render icon
+    const Icon = (props: { id: string }) => {
+      const context = externalChallenges.find(c => c.id === props.id)
+      if (!context) return null
+      const IconComponent = context.icon
+      return <IconComponent className="w-10 h-10 text-yellow-300" />
+    }
+
+    return (
+      <div className="space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8"
+        >
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 bg-clip-text text-transparent">Những Khó Khăn Ngoại Tại - &quot;Thù Trong, Giặc Ngoài&quot;</h2>
+          <p className="text-yellow-200 text-lg">
+            Các thế lực nước ngoài đe dọa nền độc lập non trẻ của Việt Nam
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {externalChallenges.map((context, index) => (
+            <motion.div
+              key={context.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              // ✅ SỬA ĐỔI: Bỏ viền màu, chỉ dùng viền vàng khi click
+              className={`bg-black/20 backdrop-blur-sm border-4 rounded-xl p-6 cursor-pointer transform hover:scale-105 transition-all duration-300 ${selectedContext === context.id
+                ? 'border-yellow-400' // Khi click
+                : 'border-transparent' // Trạng thái thường
+                }`}
+              onClick={() => setSelectedContext(selectedContext === context.id ? null : context.id)}
+            >
+              <div className="mb-4">
+                <Icon id={context.id} />
+              </div>
+              <h3 className="text-xl font-bold text-yellow-50 mb-2">{context.title}</h3>
+              <p className="text-yellow-200 text-sm mb-4">{context.description}</p>
+
+              <AnimatePresence>
+                {selectedContext === context.id && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="mt-4 space-y-2 overflow-hidden"
+                  >
+                    {context.details.map((detail, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="flex items-center text-yellow-100 text-sm"
+                      >
+                        <ChevronRight className="w-4 h-4 mr-2 flex-shrink-0" />
+                        {detail}
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   const renderPredecessorOrgs = () => (
     <div className="space-y-6">
@@ -183,8 +208,8 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl font-bold text-white mb-4">Các Thế Lực Ngoại Xâm</h2>
-        <p className="text-gray-300 text-lg">
+        <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 bg-clip-text text-transparent">Các Thế Lực Ngoại Xâm</h2>
+        <p className="text-yellow-200 text-lg">
           Những lực lượng quân sự nước ngoài đe dọa nền độc lập non trẻ
         </p>
       </motion.div>
@@ -196,40 +221,43 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.3 }}
-            className={`bg-gradient-to-r ${org.color} rounded-xl p-6 cursor-pointer transform hover:scale-105 transition-all duration-300 ${
-              selectedOrg === org.id ? 'ring-4 ring-white' : ''
-            }`}
+            // ✅ SỬA ĐỔI: Bỏ viền màu, chỉ dùng viền vàng khi click
+            className={`bg-black/20 backdrop-blur-sm border-4 rounded-xl p-6 cursor-pointer transform hover:scale-105 transition-all duration-300 ${selectedOrg === org.id
+              ? 'border-yellow-400' // Khi click
+              : 'border-transparent' // Trạng thái thường
+              }`}
             onClick={() => setSelectedOrg(selectedOrg === org.id ? null : org.id)}
           >
             <div className="flex items-start justify-between">
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white mb-2">{org.name}</h3>
+                <h3 className="text-2xl font-bold text-yellow-50 mb-2">{org.name}</h3>
                 <div className="grid md:grid-cols-3 gap-4 mb-4">
-                  <div className="flex items-center text-gray-200">
+                  <div className="flex items-center text-yellow-200">
                     <Calendar className="w-4 h-4 mr-2" />
                     {org.foundedDate}
                   </div>
-                  <div className="flex items-center text-gray-200">
+                  <div className="flex items-center text-yellow-200">
                     <Users className="w-4 h-4 mr-2" />
                     {org.founder}
                   </div>
-                  <div className="flex items-center text-gray-200">
+                  <div className="flex items-center text-yellow-200">
                     <MapPin className="w-4 h-4 mr-2" />
                     {org.location}
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <AnimatePresence>
               {selectedOrg === org.id && (
                 <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="mt-4 p-4 bg-black bg-opacity-20 rounded-lg"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="mt-4 p-4 bg-black/30 rounded-lg overflow-hidden"
                 >
-                  <p className="text-white">{org.description}</p>
+                  <p className="text-yellow-100">{org.description}</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -239,16 +267,18 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
     </div>
   )
 
-  const renderUnificationConference = () => (
+  // (Step 3: renderBesiegedStep giữ nguyên vì các màu sắc
+  // trong đó là để minh họa, không phải để click)
+  const renderBesiegedStep = () => (
     <div className="space-y-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h2 className="text-3xl font-bold text-white mb-4">Hội nghị thống nhất (3/2/1930)</h2>
-        <p className="text-gray-300 text-lg">
-          Sự kiện lịch sử đánh dấu sự ra đời của Đảng Cộng sản Việt Nam
+        <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 bg-clip-text text-transparent">Bao vây bốn phía</h2>
+        <p className="text-yellow-200 text-lg">
+          Tình thế hiểm nghèo của Việt Nam Dân Chủ Cộng Hòa (1945-1946)
         </p>
       </motion.div>
 
@@ -256,27 +286,14 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-8 mb-8"
+          className="bg-black/20 backdrop-blur-sm border border-yellow-600/50 rounded-2xl p-8 mb-8"
         >
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">🏛️</div>
-            <h3 className="text-2xl font-bold text-white mb-4">Hội nghị Cửu Long</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-black bg-opacity-20 rounded-lg p-4">
-                <div className="flex items-center mb-2">
-                  <MapPin className="w-5 h-5 mr-2 text-white" />
-                  <span className="text-white font-semibold">Địa điểm</span>
-                </div>
-                <p className="text-gray-200">Cửu Long, Hương Cảng (Hong Kong)</p>
-              </div>
-              <div className="bg-black bg-opacity-20 rounded-lg p-4">
-                <div className="flex items-center mb-2">
-                  <Users className="w-5 h-5 mr-2 text-white" />
-                  <span className="text-white font-semibold">Chủ tọa</span>
-                </div>
-                <p className="text-gray-200">Nguyễn Ái Quốc</p>
-              </div>
-            </div>
+            <Map className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-yellow-50 mb-4">Bản Đồ Cát Cứ</h3>
+            <p className="text-yellow-200">
+              Lãnh thổ Việt Nam bị chia cắt và kìm kẹp bởi nhiều thế lực thù địch cùng một lúc.
+            </p>
           </div>
 
           <div className="space-y-6">
@@ -284,30 +301,45 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-black bg-opacity-20 rounded-lg p-6"
+              className="bg-black/20 rounded-lg p-6 flex items-start"
             >
-              <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                <Target className="w-5 h-5 mr-2" />
-                Kết quả
-              </h4>
-              <p className="text-gray-200 text-lg">
-                Thống nhất ba tổ chức thành <strong className="text-white">Đảng Cộng sản Việt Nam</strong>
-              </p>
+              <MapPin className="w-6 h-6 mr-4 text-red-500 flex-shrink-0" />
+              <div>
+                <h4 className="text-xl font-bold text-yellow-50 mb-2">Miền Bắc (Từ vĩ tuyến 16)</h4>
+                <p className="text-yellow-200">
+                  <strong className="text-red-400">20 vạn quân Tưởng</strong>, theo sau là các tổ chức phản động Việt Quốc, Việt Cách.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-black bg-opacity-20 rounded-lg p-6"
+              className="bg-black/20 rounded-lg p-6 flex items-start"
             >
-              <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-                <Star className="w-5 h-5 mr-2" />
-                Ý nghĩa
-              </h4>
-              <p className="text-gray-200 text-lg">
-                Đánh dấu sự ra đời chính thức của đảng cách mạng của giai cấp công nhân Việt Nam
-              </p>
+              <MapPin className="w-6 h-6 mr-4 text-orange-500 flex-shrink-0" />
+              <div>
+                <h4 className="text-xl font-bold text-yellow-50 mb-2">Miền Nam (Từ vĩ tuyến 16)</h4>
+                <p className="text-yellow-200">
+                  <strong className="text-orange-400">Quân Anh</strong>, tạo điều kiện cho <strong className="text-orange-400">Quân Pháp</strong> quay lại tái chiếm, gây hấn ở Nam Bộ.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7 }}
+              className="bg-black/20 rounded-lg p-6 flex items-start"
+            >
+              <ShieldAlert className="w-6 h-6 mr-4 text-blue-500 flex-shrink-0" />
+              <div>
+                <h4 className="text-xl font-bold text-yellow-50 mb-2">Toàn quốc</h4>
+                <p className="text-yellow-200">
+                  <strong className="text-blue-400">Hơn 6 vạn quân Nhật</strong> tuy đã đầu hàng nhưng vẫn còn vũ khí, sẵn sàng chờ thời cơ.
+                </p>
+              </div>
             </motion.div>
           </div>
         </motion.div>
@@ -315,77 +347,82 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
     </div>
   )
 
-  const renderHistoricalSignificance = () => (
-    <div className="space-y-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-8"
-      >
-        <h2 className="text-3xl font-bold text-white mb-4">Ý nghĩa lịch sử</h2>
-        <p className="text-gray-300 text-lg">
-          Tầm quan trọng của việc thành lập Đảng Cộng sản Việt Nam
-        </p>
-      </motion.div>
+  // (Step 4: renderHistoricalSignificance giữ nguyên)
+  const renderHistoricalSignificance = () => {
+    const significanceItems = [
+      {
+        title: 'Chủ quyền bị xâm phạm',
+        description: 'Nhiều lực lượng nước ngoài cùng tồn tại trên lãnh thổ.',
+        icon: AlertTriangle,
+      },
+      {
+        title: 'Chính trị bất ổn',
+        description: 'Các phe phái phản động nội dậy, quấy phá.',
+        icon: Building,
+      },
+      {
+        title: 'Kinh tế kiệt quệ',
+        description: 'Bị kiềm kẹp, vơ vét bởi cả Nhật, Tưởng và Pháp.',
+        icon: Banknote,
+      },
+      {
+        title: 'An ninh - Xã hội',
+        description: 'Nạn đói vẫn đe dọa, trật tự xã hội rối loạn.',
+        icon: Globe,
+      }
+    ]
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {[
-          {
-            title: 'Chấm dứt khủng hoảng đường lối',
-            description: 'Kết thúc tình trạng thiếu đường lối cứu nước đúng đắn',
-            icon: '🎯',
-            color: 'from-blue-500 to-blue-700'
-          },
-          {
-            title: 'Mở ra bước ngoặt lịch sử',
-            description: 'Đưa cách mạng Việt Nam sang thời kỳ mới',
-            icon: '🌟',
-            color: 'from-green-500 to-green-700'
-          },
-          {
-            title: 'Khẳng định vai trò giai cấp công nhân',
-            description: 'Chứng tỏ giai cấp công nhân đã trưởng thành',
-            icon: '💪',
-            color: 'from-red-500 to-red-700'
-          },
-          {
-            title: 'Gắn với cách mạng thế giới',
-            description: 'Trở thành bộ phận của cách mạng vô sản thế giới',
-            icon: '🌍',
-            color: 'from-purple-500 to-purple-700'
-          }
-        ].map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            className={`bg-gradient-to-br ${item.color} rounded-xl p-6`}
-          >
-            <div className="text-4xl mb-4">{item.icon}</div>
-            <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-            <p className="text-gray-200">{item.description}</p>
-          </motion.div>
-        ))}
-      </div>
+    return (
+      <div className="space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8"
+        >
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 bg-clip-text text-transparent">Hệ quả nghiêm trọng</h2>
+          <p className="text-yellow-200 text-lg">
+            Tình thế &quot;Ngàn cân treo sợi tóc&quot;
+          </p>
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-xl p-6 mt-8"
-      >
-        <div className="text-center">
-          <div className="text-4xl mb-4">📜</div>
-          <h3 className="text-2xl font-bold text-white mb-4">Lời Chủ tịch Hồ Chí Minh</h3>
-          <blockquote className="text-white text-lg italic">
-            Việc thành lập Đảng là một bước ngoặt vô cùng quan trọng trong lịch sử cách mạng Việt Nam ta. 
-            Nó chứng tỏ rằng giai cấp vô sản ta đã trưởng thành và đủ sức lãnh đạo cách mạng.
-          </blockquote>
+        <div className="grid md:grid-cols-2 gap-6">
+          {significanceItems.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-black/20 backdrop-blur-sm border border-yellow-600/30 rounded-xl p-6"
+              >
+                <div className="mb-4">
+                  <Icon className="w-10 h-10 text-yellow-300" />
+                </div>
+                <h3 className="text-xl font-bold text-yellow-50 mb-2">{item.title}</h3>
+                <p className="text-yellow-200">{item.description}</p>
+              </motion.div>
+            )
+          })}
         </div>
-      </motion.div>
-    </div>
-  )
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-xl p-6 mt-8"
+        >
+          <div className="text-center">
+            <BookOpen className="w-10 h-10 mx-auto mb-4 text-yellow-300" />
+            <h3 className="text-2xl font-bold text-yellow-50 mb-4">Lời Chủ tịch Hồ Chí Minh</h3>
+            <blockquote className="text-yellow-200 text-lg italic font-medium">
+              &quot;Lúc này, thời vận của dân tộc ta như ngàn cân treo sợi tóc...&quot;
+            </blockquote>
+          </div>
+        </motion.div>
+      </div>
+    )
+  }
 
   const renderCurrentStep = () => {
     switch (currentStep) {
@@ -394,7 +431,7 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
       case 1:
         return renderPredecessorOrgs()
       case 2:
-        return renderUnificationConference()
+        return renderBesiegedStep()
       case 3:
         return renderHistoricalSignificance()
       default:
@@ -402,8 +439,9 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
     }
   }
 
+  // (Phần JSX return bên dưới giữ nguyên)
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-red-900 to-gray-900 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#4b2e05] via-[#8b5e2a] to-[#d2a679] p-6 text-yellow-100">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -411,26 +449,26 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 bg-clip-text text-transparent drop-shadow-lg">
             Khó Khăn Ngoại Tại
           </h1>
-          <p className="text-gray-300 text-xl">
-            "Thù trong, giặc ngoài" - Các thế lực đe dọa từ bên ngoài (1945-1946)
+          {/* ✅ SỬA ĐỔI: Sửa quote */}
+          <p className="text-yellow-100 text-xl">
+            &quot;Thù trong, giặc ngoài&quot; - Các thế lực đe dọa từ bên ngoài (1945-1946)
           </p>
         </motion.div>
 
         {/* Progress Steps */}
         <div className="flex justify-center mb-8">
-          <div className="flex space-x-4 bg-black bg-opacity-30 rounded-full p-2">
+          <div className="flex flex-wrap justify-center space-x-2 md:space-x-4 bg-black/30 rounded-full p-2">
             {steps.map((step, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentStep(index)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  currentStep === index
-                    ? 'bg-red-600 text-white'
-                    : 'text-gray-300 hover:text-white hover:bg-gray-700'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 m-1 md:m-0 ${currentStep === index
+                  ? 'bg-yellow-600 text-[#3b2f05]'
+                  : 'text-yellow-100 hover:text-white hover:bg-white/10'
+                  }`}
               >
                 {step}
               </button>
@@ -452,49 +490,85 @@ export default function PartyFormationSection({ onNext, onBack, onGoToDashboard 
         </AnimatePresence>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center mt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-12 space-y-4 md:space-y-0">
           <div className="flex items-center space-x-4">
             <button
               onClick={onBack}
-              className="flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors duration-300"
+              className="flex items-center px-6 py-3 
+                         bg-gradient-to-r from-[#8b5e2a] to-[#5c3b14]
+                         hover:from-[#a06a32] hover:to-[#70471a]
+                         text-white font-semibold rounded-full
+                         border border-[#d6a85b]
+                         shadow-[0_0_10px_rgba(214,168,91,0.3)]
+                         hover:shadow-[0_0_15px_rgba(214,168,91,0.5)]
+                         transition-all duration-300"
             >
-              <ChevronLeft className="w-5 h-5 mr-2" />
+              <ChevronLeft className="w-5 h-5 mr-2 text-white" />
               Quay lại
             </button>
-            
+
             {onGoToDashboard && (
               <button
                 onClick={onGoToDashboard}
-                className="flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300"
+                className="flex items-center px-6 py-3 
+               bg-gradient-to-r from-[#b98a3c] to-[#8b5e2a]
+               hover:from-[#d2a34b] hover:to-[#9c622f]
+               text-yellow-100 font-semibold rounded-full
+               border border-[#e9c27c]
+               shadow-[0_0_10px_rgba(233,194,124,0.3)]
+               hover:shadow-[0_0_15px_rgba(233,194,124,0.5)]
+               transition-all duration-300"
               >
                 📊 Bảng điều khiển
               </button>
             )}
           </div>
-            
+
           <div className="flex space-x-4">
             <button
               onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
               disabled={currentStep === 0}
-              className="px-6 py-3 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:opacity-50 text-white rounded-lg transition-colors duration-300"
+              className={`flex items-center px-8 py-3 rounded-full border font-semibold transition-all duration-300
+      ${currentStep === 0
+                  ? "bg-gradient-to-r from-gray-500 to-gray-600 text-yellow-100 border-gray-400 opacity-50 cursor-not-allowed"
+                  : "bg-gradient-to-r from-[#8b5e2a] to-[#b98a3c] hover:from-[#9c622f] hover:to-[#d2a34b] text-yellow-100 border-[#e9c27c] shadow-[0_0_12px_rgba(233,194,124,0.3)] hover:shadow-[0_0_18px_rgba(233,194,124,0.5)]"
+                }`}
             >
+              <ArrowLeft className="w-5 h-5 mr-2 text-[#3b2f05]" />
               Bước trước
             </button>
-            
+
             {currentStep < steps.length - 1 ? (
               <button
-                onClick={() => setCurrentStep(Math.min(steps.length - 1, currentStep + 1))}
-                className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-300"
+                onClick={() =>
+                  setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+                }
+                className="flex items-center px-8 py-3 
+        bg-gradient-to-r from-[#b98a3c] to-[#8b5e2a] 
+        hover:from-[#d2a34b] hover:to-[#9c622f]
+        text-yellow-100 font-semibold rounded-full 
+        border border-[#e9c27c]
+        shadow-[0_0_12px_rgba(233,194,124,0.3)]
+        hover:shadow-[0_0_18px_rgba(233,194,124,0.5)]
+        transition-all duration-300"
               >
                 Bước tiếp
+                <ArrowRight className="w-5 h-5 ml-2 text-[#3b2f05]" />
               </button>
             ) : (
               <button
                 onClick={onNext}
-                className="flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-300"
+                className="flex items-center px-8 py-3 
+             bg-gradient-to-r from-[#b98a3c] to-[#8b5e2a] 
+             hover:from-[#d2a34b] hover:to-[#9c622f]
+             text-yellow-100 font-semibold rounded-full 
+             border border-[#e9c27c]
+             shadow-[0_0_12px_rgba(233,194,124,0.3)]
+             hover:shadow-[0_0_18px_rgba(233,194,124,0.5)]
+             transition-all duration-300"
               >
-                Tiếp theo: Khó khăn nội tại
-                <ChevronRight className="w-5 h-5 ml-2" />
+                Tiếp theo: Dòng thời gian
+                <ArrowRight className="w-5 h-5 ml-2 text-[#3b2f05]" />
               </button>
             )}
           </div>

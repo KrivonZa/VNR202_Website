@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+
+// Import các section
 import LandingPage from '@/components/LandingPage'
 import HistoricalContextSection from '@/components/HistoricalContextSection'
 import InteractiveTimelineSection from '@/components/InteractiveTimelineSection'
@@ -15,101 +17,118 @@ import DashboardSection from '@/components/DashboardSection'
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState('landing')
+  const [quizKey, setQuizKey] = useState(0) // 👈 thêm dòng này
 
-  // Scroll to top whenever section changes
+  // Scroll lên đầu mỗi khi đổi section
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [currentSection])
 
+  // Các hàm điều hướng
+  const goToLanding = () => setCurrentSection('landing')
   const goToHistoricalContext = () => setCurrentSection('historical-context')
   const goToTimeline = () => setCurrentSection('timeline')
-  const goToExternalChallenges = () => setCurrentSection('external-challenges')
-  const goToInternalChallenges = () => setCurrentSection('internal-challenges')
-  const goToSolutions = () => setCurrentSection('solutions')
-  const goToResults = () => setCurrentSection('results')
+  const goToPartyFormation = () => setCurrentSection('party-formation')
+  const goToPlatform = () => setCurrentSection('platform')
+  const goToHistoricalSignificance = () => setCurrentSection('historical-significance')
+  const goToInevitability = () => setCurrentSection('inevitability')
   const goToBreakthrough = () => setCurrentSection('breakthrough')
   const goToQuiz = () => setCurrentSection('quiz')
   const goToSharing = () => setCurrentSection('sharing')
   const goToDashboard = () => setCurrentSection('dashboard')
-  const goToLanding = () => setCurrentSection('landing')
+
+  // 👇 Hàm restart quiz — tạo lại component QuizPage
+  const restartQuiz = () => {
+    setQuizKey(prev => prev + 1) // đổi key → remount component
+    setCurrentSection('quiz')
+  }
 
   return (
     <main>
       {currentSection === 'landing' && (
-        <LandingPage 
-          onStartJourney={goToHistoricalContext}
-        />
+        <LandingPage onStartJourney={goToHistoricalContext} />
       )}
+
       {currentSection === 'historical-context' && (
-        <HistoricalContextSection 
+        <HistoricalContextSection
           onNext={goToTimeline}
           onBack={goToLanding}
           onGoToDashboard={goToDashboard}
         />
       )}
+
       {currentSection === 'timeline' && (
-        <InteractiveTimelineSection 
-          onNext={goToExternalChallenges}
+        <InteractiveTimelineSection
+          onNext={goToPartyFormation}
           onBack={goToHistoricalContext}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'external-challenges' && (
-        <PartyFormationSection 
-          onNext={goToInternalChallenges}
+
+      {currentSection === 'party-formation' && (
+        <PartyFormationSection
+          onNext={goToPlatform}
           onBack={goToTimeline}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'internal-challenges' && (
-        <PlatformSection 
-          onNext={goToSolutions}
-          onBack={goToExternalChallenges}
+
+      {currentSection === 'platform' && (
+        <PlatformSection
+          onNext={goToHistoricalSignificance}
+          onBack={goToPartyFormation}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'solutions' && (
-        <HistoricalSignificanceSection 
-          onNext={goToResults}
-          onBack={goToInternalChallenges}
+
+      {currentSection === 'historical-significance' && (
+        <HistoricalSignificanceSection
+          onNext={goToInevitability}
+          onBack={goToPlatform}
           onGoToDashboard={goToDashboard}
         />
       )}
-      {currentSection === 'results' && (
-        <InevitabilitySection 
+
+      {currentSection === 'inevitability' && (
+        <InevitabilitySection
           onNext={goToBreakthrough}
-          onBack={goToSolutions}
+          onBack={goToHistoricalSignificance}
           onGoToDashboard={goToDashboard}
         />
       )}
+
       {currentSection === 'breakthrough' && (
-        <BreakthroughSection 
+        <BreakthroughSection
           onNext={goToQuiz}
-          onBack={goToResults}
+          onBack={goToInevitability}
           onGoToDashboard={goToDashboard}
         />
       )}
+
       {currentSection === 'quiz' && (
-        <QuizPage 
+        <QuizPage
+          key={quizKey}
           onNext={goToSharing}
           onBack={goToBreakthrough}
+          onRestart={restartQuiz}
+          onGoToDashboard={goToDashboard}
+        />
+      )}
+
+      {currentSection === 'sharing' && (
+        <SharingSection
+          onNext={goToDashboard}
+          onBack={goToQuiz}
           onRestart={goToLanding}
           onGoToDashboard={goToDashboard}
         />
       )}
+
       {currentSection === 'dashboard' && (
-        <DashboardSection 
-          onBack={goToQuiz}
+        <DashboardSection
+          onBack={goToSharing}
           onRestart={goToLanding}
           onNavigateToSection={(section) => setCurrentSection(section)}
-        />
-      )}
-      {currentSection === 'sharing' && (
-        <SharingSection 
-          onBack={goToQuiz}
-          onNext={goToDashboard}
-          onRestart={goToLanding}
-          onGoToDashboard={goToDashboard}
         />
       )}
     </main>

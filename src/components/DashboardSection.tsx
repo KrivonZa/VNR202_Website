@@ -15,70 +15,64 @@ const sections = [
     title: 'Bối cảnh lịch sử',
     description: 'Tìm hiểu về bối cảnh lịch sử trước khi Đảng ra đời',
     icon: BookOpen,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-[#b98a3c] to-[#e2b75d]',
   },
   {
     id: 'timeline',
     title: 'Dòng thời gian tương tác',
     description: 'Khám phá hành trình hình thành Đảng qua các mốc thời gian',
     icon: Clock,
-    color: 'from-purple-500 to-pink-500',
-
+    color: 'from-[#8c6334] to-[#d6a85b]',
   },
   {
     id: 'party-formation',
-    title: 'Quá trình thành lập Đảng',
-    description: 'Tìm hiểu chi tiết về quá trình thành lập Đảng Cộng sản Việt Nam',
+    title: 'Khó Khăn Ngoại Tại',
+    description: 'Tìm hiểu chi tiết về sự ra đời và hợp nhất các tổ chức cộng sản',
     icon: Users,
-    color: 'from-green-500 to-emerald-500',
-
+    color: 'from-[#a1743b] to-[#e0b45a]',
   },
   {
     id: 'platform',
-    title: 'Cương lĩnh chính trị',
-    description: 'Nghiên cứu cương lĩnh chính trị đầu tiên của Đảng',
+    title: 'Khó Khăn Nôi Tại',
+    description: 'Khám phá nội dung cương lĩnh đầu tiên của Đảng Cộng sản Việt Nam',
     icon: BookOpen,
-    color: 'from-orange-500 to-red-500',
-
+    color: 'from-[#b98a3c] to-[#f0c66d]',
   },
   {
     id: 'historical-significance',
-    title: 'Ý nghĩa lịch sử',
-    description: 'Hiểu rõ ý nghĩa lịch sử của việc thành lập Đảng',
+    title: 'Biện Pháp Vượt Qua Khó Khăn',
+    description: 'Tìm hiểu ý nghĩa lịch sử sâu sắc của việc thành lập Đảng',
     icon: Star,
-    color: 'from-indigo-500 to-purple-500',
-
+    color: 'from-[#8a6029] to-[#d6a85b]',
   },
   {
     id: 'inevitability',
-    title: 'Tính tất yếu',
-    description: 'Phân tích tính tất yếu của sự ra đời Đảng Cộng sản Việt Nam',
+    title: 'Kết Quả và Ý Nghĩa Lịch Sử',
+    description: 'Phân tích tính tất yếu khách quan của sự ra đời Đảng Cộng sản Việt Nam',
     icon: BookOpen,
-    color: 'from-teal-500 to-blue-500',
-
+    color: 'from-[#b98a3c] to-[#e2b75d]',
   },
   {
     id: 'breakthrough',
     title: 'Bước ngoặt vĩ đại',
-    description: 'Chứng minh sự ra đời của Đảng là bước ngoặt vĩ đại của cách mạng Việt Nam',
+    description: 'Khẳng định sự ra đời của Đảng là bước ngoặt vĩ đại trong lịch sử cách mạng Việt Nam',
     icon: Star,
-    color: 'from-amber-500 to-yellow-500',
-
+    color: 'from-[#d6a85b] to-[#f5cc70]',
   },
   {
     id: 'quiz',
     title: 'Kiểm tra kiến thức',
-    description: 'Làm bài quiz để kiểm tra hiểu biết về lịch sử thành lập Đảng',
+    description: 'Thử sức với bài quiz để củng cố hiểu biết của bạn',
     icon: Brain,
-    color: 'from-yellow-500 to-orange-500',
+    color: 'from-[#e6b24c] to-[#f4cd78]',
   },
   {
     id: 'sharing',
     title: 'Chia sẻ cảm nghĩ',
-    description: 'Chia sẻ suy nghĩ và cảm nhận của bạn về hành trình học tập',
+    description: 'Ghi lại và chia sẻ cảm nhận của bạn sau khi hoàn thành hành trình học tập',
     icon: Heart,
-    color: 'from-pink-500 to-rose-500',
-  }
+    color: 'from-[#b77e3b] to-[#e2b75d]',
+  },
 ]
 
 const tools = [
@@ -86,57 +80,62 @@ const tools = [
     name: 'ChatGPT',
     description: 'Tóm tắt ý chính từ giáo trình để chuẩn bị nội dung thuyết trình',
     icon: Bot,
-    color: 'from-green-400 to-green-600',
+    color: 'from-[#d6a85b] to-[#f0c66d]',
     url: 'https://chat.openai.com'
   },
   {
     name: 'Padlet',
     description: 'Nơi chia sẻ ý tưởng, đánh giá công việc, trao đổi với nhau,...',
     icon: Share2,
-    color: 'from-pink-400 to-pink-600',
+    color: 'from-[#b98a3c] to-[#e2b75d]',
     url: 'https://padlet.com'
   },
   {
     name: 'ClaudeAI',
     description: 'Fix bug, logic code',
     icon: MessageCircle,
-    color: 'from-purple-400 to-purple-600',
+    color: 'from-[#8a6029] to-[#d6a85b]',
     url: 'https://claude.ai'
   },
   {
     name: 'Gemini',
     description: 'Tóm tắt ý chính từ giáo trình để chuẩn bị nội dung câu hỏi',
     icon: Bot,
-    color: 'from-green-400 to-green-600',
+    color: 'from-[#d1a464] to-[#f1c86d]',
     url: 'https://gemini.google.com'
   }
 ]
 
 export default function DashboardSection({ onBack, onRestart, onNavigateToSection }: DashboardSectionProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(20)].map((_, i) => (
+    <div className="min-h-screen relative bg-gradient-to-br from-[#4b2e05] via-[#8b5e2a] to-[#d2a679] text-white overflow-hidden">
+      {/* Hiệu ứng khói */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+            className="absolute w-[600px] h-[300px] bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.07)_0%,_rgba(255,255,255,0)_70%)]"
+            initial={{
+              x: Math.random() * 800 - 400,
+              y: Math.random() * 400 - 200,
+              opacity: 0.15,
+              scale: 1.2,
             }}
             animate={{
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
+              x: [Math.random() * 800 - 400, Math.random() * 800 - 400],
+              y: [Math.random() * 500 - 250, Math.random() * 500 - 250],
+              opacity: [0.1, 0.25, 0.15],
             }}
             transition={{
-              duration: 3,
+              duration: 40 + i * 10,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              ease: 'easeInOut',
             }}
           />
         ))}
       </div>
+
+      <div className="absolute inset-0 bg-black/25 backdrop-blur-[2px]" />
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Header */}
@@ -146,10 +145,10 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#d6a85b] to-[#f1c86d] bg-clip-text text-transparent mb-4">
             Bảng Điều Khiển
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-yellow-100 max-w-3xl mx-auto">
             Chọn phần bạn muốn học hoặc ôn tập lại. Mỗi phần được thiết kế để giúp bạn hiểu sâu hơn về lịch sử thành lập Đảng.
           </p>
         </motion.div>
@@ -161,8 +160,8 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-16"
         >
-          <h2 className="text-2xl font-bold text-center mb-8 text-blue-400">Các Phần Học Tập</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-2xl font-bold text-center mb-8 text-yellow-300">Các Phần Học Tập</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {sections.map((section, index) => {
               const IconComponent = section.icon
               return (
@@ -171,27 +170,31 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer h-full"
                   onClick={() => onNavigateToSection(section.id)}
                 >
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${section.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-300">
-                      {section.title}
-                    </h3>
-                    
-                    <p className="text-gray-300 text-sm mb-4 line-clamp-2">
-                      {section.description}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-blue-400 text-sm font-medium group-hover:text-blue-300 transition-colors duration-300">
-                        <Play className="w-4 h-4 mr-1" />
-                        Học ngay
+                  <div
+                    className="h-full w-full min-h-[230px] flex flex-col justify-between bg-white/10 backdrop-blur-lg 
+                               rounded-2xl p-6 border border-white/20 hover:border-yellow-300/50 
+                               transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(214,168,91,0.3)]"
+                  >
+                    <div>
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${section.color} 
+                                      flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
+
+                      <h3 className="text-xl font-bold mb-2 text-yellow-100 group-hover:text-yellow-300 transition-colors duration-300">
+                        {section.title}
+                      </h3>
+                      <p className="text-yellow-50 text-sm mb-4 line-clamp-2">
+                        {section.description}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between text-yellow-300 text-sm font-medium group-hover:text-yellow-200 transition-colors duration-300">
+                      <Play className="w-4 h-4 mr-1" />
+                      Học ngay
                     </div>
                   </div>
                 </motion.div>
@@ -207,8 +210,8 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-12"
         >
-          <h2 className="text-2xl font-bold text-center mb-8 text-purple-400">Công Cụ Phụ Lục</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 className="text-2xl font-bold text-center mb-8 text-yellow-300">Công Cụ Phụ Lục</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {tools.map((tool, index) => {
               const IconComponent = tool.icon
               return (
@@ -217,24 +220,29 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer h-full"
                   onClick={() => window.open(tool.url, '_blank')}
                 >
-                  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${tool.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-6 h-6 text-white" />
+                  <div
+                    className="h-full w-full min-h-[180px] flex flex-col justify-between bg-white/10 backdrop-blur-lg 
+                               rounded-2xl p-6 border border-white/20 hover:border-yellow-300/50 
+                               transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(214,168,91,0.3)]"
+                  >
+                    <div>
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${tool.color} 
+                                      flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-xl font-bold text-yellow-100 group-hover:text-yellow-300 transition-colors duration-300">
+                          {tool.name}
+                        </h3>
+                        <ExternalLink className="w-4 h-4 text-yellow-200 group-hover:text-yellow-300 transition-colors duration-300" />
+                      </div>
+
+                      <p className="text-yellow-50 text-sm">{tool.description}</p>
                     </div>
-                    
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-bold group-hover:text-purple-400 transition-colors duration-300">
-                        {tool.name}
-                      </h3>
-                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
-                    </div>
-                    
-                    <p className="text-gray-300 text-sm">
-                      {tool.description}
-                    </p>
                   </div>
                 </motion.div>
               )
@@ -242,44 +250,43 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
           </div>
         </motion.div>
 
-        {/* Team Members Section */}
+        {/* Team Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-2xl font-bold text-center mb-8 text-green-400">Phụ Lục - Thành Viên Nhóm 1</h2>
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-2xl font-bold text-center mb-8 text-yellow-300">Thành Viên Nhóm 3</h2>
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-yellow-400/20 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
-                { name: 'Nguyễn Duy Hưng', id: 'SE184681' },
-                { name: 'Nguyễn Cong Trung', id: 'SE170145' },
-                { name: 'Lê Quang Huy', id: 'QE180084' },
-                { name: 'Nguyễn Minh Hiếu', id: 'SE182322' },
-                { name: 'Trương Văn Phát', id: 'SE172155' }
+                { name: 'Trần Giang Khánh', id: 'SE182983' },
+                { name: 'Nguyễn Hoàng An', id: 'HE176690' },
+                { name: 'Trương Tấn Dũng', id: 'SE183087' },
+                { name: 'Nguyễn Hoàng Phát', id: 'SE170421' }
               ].map((member, index) => (
                 <motion.div
                   key={member.id}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                  className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-4 border border-green-400/30 hover:border-green-400/60 transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-[#d6a85b]/20 to-[#f1c86d]/20 rounded-xl p-4 border border-yellow-400/40 hover:border-yellow-300/70 transition-all duration-300 hover:scale-105"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-400 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#d6a85b] to-[#f1c86d] flex items-center justify-center">
                       <Users className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-white text-sm">{member.name}</h3>
-                      <p className="text-green-300 text-xs font-mono">{member.id}</p>
+                      <h3 className="font-bold text-yellow-100 text-sm">{member.name}</h3>
+                      <p className="text-yellow-200 text-xs font-mono">{member.id}</p>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
             <div className="text-center mt-6">
-              <p className="text-gray-300 text-sm italic">
+              <p className="text-yellow-100 text-sm italic">
                 Các thành viên đã đóng góp vào việc phát triển ứng dụng học tập này
               </p>
             </div>
@@ -295,7 +302,8 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
         >
           <motion.button
             onClick={onBack}
-            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-full font-bold cursor-pointer flex items-center"
+            className="bg-gradient-to-r from-[#8b5e2a] to-[#5c3b14] hover:from-[#a06a32] hover:to-[#70471a]
+                       text-white px-6 py-3 rounded-full font-bold cursor-pointer flex items-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -305,7 +313,8 @@ export default function DashboardSection({ onBack, onRestart, onNavigateToSectio
 
           <motion.button
             onClick={onRestart}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-full font-bold cursor-pointer"
+            className="bg-gradient-to-r from-[#b98a3c] to-[#e2b75d] hover:from-[#d8a94c] hover:to-[#f1c86d]
+                       text-[#3b2f05] px-6 py-3 rounded-full font-bold cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

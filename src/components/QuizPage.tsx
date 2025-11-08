@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+// ✅ 1. THÊM ICON "Check" VÀ "X"
+import {
+  ChevronLeft, RotateCcw, Share2, Trophy, ClipboardCheck,
+  Check, X
+} from 'lucide-react'
 
 interface QuizPageProps {
   onNext?: () => void
@@ -18,13 +23,14 @@ interface Question {
   explanation?: string
 }
 
+// (Dữ liệu questions giữ nguyên)
 const questions: Question[] = [
   {
     id: 1,
     question: "Nước Việt Nam Dân chủ Cộng hòa được tuyên bố thành lập vào ngày nào?",
     options: [
       "2/9/1945",
-      "19/8/1945", 
+      "19/8/1945",
       "25/8/1945",
       "30/8/1945"
     ],
@@ -95,6 +101,7 @@ const questions: Question[] = [
     id: 7,
     question: "Phong trào 'Ngày đồng tâm' có ý nghĩa gì?",
     options: [
+      "Mỗi người nhịn một bữa cơm để cứu đói",
       "Toàn dân đóng góp vàng cho quỹ quốc gia",
       "Mọi người cùng học xóa mù chữ",
       "Cả nước cùng kháng chiến"
@@ -140,13 +147,13 @@ const questions: Question[] = [
   }
 ]
 
+
 export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }: QuizPageProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>(new Array(questions.length).fill(-1))
   const [showResult, setShowResult] = useState(false)
   const [showAnswerFeedback, setShowAnswerFeedback] = useState(false)
 
-  // Scroll to top when currentQuestionIndex changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [currentQuestionIndex])
@@ -173,9 +180,13 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1)
-      // Check if previous question was already answered to show feedback
       setShowAnswerFeedback(selectedAnswers[currentQuestionIndex - 1] !== -1)
     }
+  }
+
+  const handleJumpToQuestion = (index: number) => {
+    setCurrentQuestionIndex(index)
+    setShowAnswerFeedback(selectedAnswers[index] !== -1)
   }
 
   const calculateScore = () => {
@@ -193,16 +204,17 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
     return "Cần cố gắng thêm! 💪"
   }
 
+
+  // (Màn hình Kết quả (showResult) giữ nguyên)
   if (showResult) {
     const score = calculateScore()
     return (
-      <div className="h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden flex items-center justify-center">
-        {/* Background effects */}
-        <div className="absolute inset-0">
+      <div className="h-screen bg-gradient-to-br from-[#4b2e05] via-[#8b5e2a] to-[#d2a679] relative overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 opacity-20">
           {[...Array(50)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-white rounded-full"
+              className="absolute w-1 h-1 bg-yellow-200 rounded-full"
               style={{
                 left: `${(i * 7.3) % 100}%`,
                 top: `${(i * 11.7) % 100}%`,
@@ -222,7 +234,7 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
 
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <motion.div
-            className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-xl"
+            className="bg-black/20 backdrop-blur-lg rounded-2xl p-8 border border-yellow-600/30 shadow-xl"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -238,48 +250,48 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                 repeat: Infinity,
               }}
             >
-              {score >= questions.length * 0.8 ? "🏆" : "📊"}
+              {score >= questions.length * 0.8 ? <Trophy className="w-16 h-16 mx-auto text-yellow-400" /> : <ClipboardCheck className="w-16 h-16 mx-auto text-yellow-300" />}
             </motion.div>
 
-            <h1 className="text-3xl font-bold text-white mb-4">
+            <h1 className="text-3xl font-bold text-yellow-50 mb-4">
               Kết Quả Kiểm Tra Kiến Thức
             </h1>
 
-            <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-3">
+            <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 mb-3">
               {score}/{questions.length}
             </div>
 
-            <p className="text-xl text-gray-300 mb-6">
+            <p className="text-xl text-yellow-200 mb-6">
               {getScoreMessage(score)}
             </p>
 
-            <div className="mb-6 flex gap-4 justify-center">
+            <div className="mb-6 flex flex-wrap justify-center gap-4">
               <motion.button
                 onClick={onBack}
-                className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-full font-bold cursor-pointer"
+                className="flex items-center px-6 py-3 bg-black/20 hover:bg-black/30 text-yellow-100 rounded-full font-bold cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🔙 Quay lại
+                <ChevronLeft className="w-5 h-5 mr-1" /> Quay lại
               </motion.button>
 
               <motion.button
                 onClick={onRestart}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-full font-bold cursor-pointer"
+                className="flex items-center px-6 py-3 bg-yellow-600 hover:bg-yellow-500 text-[#3b2f05] rounded-full font-bold cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🔄 Làm lại quiz
+                <RotateCcw className="w-5 h-5 mr-2" /> Làm lại quiz
               </motion.button>
 
               {onNext && (
                 <motion.button
                   onClick={onNext}
-                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-full font-bold cursor-pointer"
+                  className="flex items-center px-6 py-3 bg-yellow-700 hover:bg-yellow-600 text-[#3b2f05] rounded-full font-bold cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  ✨ Chia sẻ cảm nghĩ
+                  <Share2 className="w-5 h-5 mr-2" /> Chia sẻ cảm nghĩ
                 </motion.button>
               )}
             </div>
@@ -289,50 +301,63 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
     )
   }
 
+  // (Phần Màn hình Quiz chính)
   return (
-    <div className="h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
-      {/* Navigation Buttons */}
+    <div className="h-screen bg-gradient-to-br from-[#4b2e05] via-[#8b5e2a] to-[#d2a679] relative overflow-hidden text-yellow-100">
+      {/* (Các nút Navigation top-left/right giữ nguyên) */}
       <div className="absolute top-4 left-4 z-20 flex items-center space-x-4">
         <motion.button
           onClick={onBack}
-          className="bg-white/90 hover:bg-white text-blue-800 px-4 py-2 rounded-full font-bold shadow-lg transition-all duration-300 flex items-center space-x-1 cursor-pointer"
+          className="flex items-center justify-center px-6 py-3 min-w-[180px]
+      bg-gradient-to-r from-[#8b5e2a] to-[#5c3b14]
+      hover:from-[#a06a32] hover:to-[#70471a]
+      text-white font-semibold rounded-full
+      border border-[#d6a85b]
+      shadow-[0_0_10px_rgba(214,168,91,0.3)]
+      hover:shadow-[0_0_15px_rgba(214,168,91,0.5)]
+      transition-all duration-300 cursor-pointer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-lg">←</span>
-          <span className="text-sm">Quay lại</span>
+          <ChevronLeft className="w-5 h-5 mr-2 text-white" />
+          <span className="text-sm font-bold">Quay lại</span>
         </motion.button>
 
+        {/* Nút Bảng điều khiển */}
         {onGoToDashboard && (
           <motion.button
             onClick={onGoToDashboard}
-            className="bg-purple-600/90 hover:bg-purple-700 text-white px-4 py-2 rounded-full font-bold shadow-lg transition-all duration-300 flex items-center space-x-1 cursor-pointer"
+            className="flex items-center justify-center px-6 py-3 min-w-[180px]
+        bg-gradient-to-r from-[#b98a3c] to-[#8b5e2a]
+        hover:from-[#d2a34b] hover:to-[#9c622f]
+        text-yellow-100 font-semibold rounded-full
+        border border-[#e9c27c]
+        shadow-[0_0_10px_rgba(233,194,124,0.3)]
+        hover:shadow-[0_0_15px_rgba(233,194,124,0.5)]
+        transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <span className="text-lg">📊</span>
-            <span className="text-sm">Bảng điều khiển</span>
+            <span className="text-lg mr-2">📊</span>
+            <span className="text-sm font-bold">Bảng điều khiển</span>
           </motion.button>
         )}
-      </div>
 
-      {/* Progress bar */}
-      <div className="absolute top-4 right-4 z-20 bg-white/90 px-4 py-2 rounded-full font-bold text-blue-800 text-sm">
+      </div>
+      <div className="absolute top-4 right-4 z-20 bg-black/30 px-4 py-2 rounded-full font-bold text-yellow-100 text-sm">
         Câu {currentQuestionIndex + 1}/{questions.length}
       </div>
-
-      {/* Background effects */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 opacity-20">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
+            className="absolute w-1 h-1 bg-yellow-200 rounded-full"
             style={{
               left: `${(i * 7.3) % 100}%`,
               top: `${(i * 11.7) % 100}%`,
@@ -349,12 +374,13 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
         ))}
       </div>
 
+
       <div className="flex items-center justify-center h-full px-4">
         <div className="max-w-3xl w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentQuestionIndex}
-              className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-xl"
+              className="bg-black/20 backdrop-blur-lg rounded-2xl p-6 border border-yellow-600/30 shadow-xl"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
@@ -362,19 +388,59 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
             >
               {/* Question */}
               <div className="mb-6">
-                <h2 className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight">
+                <h2 className="text-xl md:text-2xl font-bold text-yellow-50 mb-4 leading-tight">
                   Câu {currentQuestion.id}. {currentQuestion.question}
                 </h2>
               </div>
 
-              {/* Options */}
+              {/* ✅ 2. BẢNG CÂU HỎI ĐÃ CẬP NHẬT LOGIC */}
+              <div className="flex flex-wrap justify-center gap-2 mb-6">
+                {questions.map((q, index) => {
+                  const isCurrent = index === currentQuestionIndex;
+                  const isAnswered = selectedAnswers[index] !== -1;
+                  // Thêm biến kiểm tra Đúng/Sai
+                  const isCorrect = isAnswered && selectedAnswers[index] === questions[index].correctAnswer;
+
+                  let buttonStyle = 'bg-black/20 text-yellow-100 hover:bg-black/40 border-transparent'; // Default
+
+                  if (isCurrent) {
+                    buttonStyle = 'bg-yellow-500 text-[#3b2f05] ring-2 ring-yellow-100 border-transparent'; // Current
+                  } else if (isAnswered && isCorrect) {
+                    // Style cho câu ĐÃ TRẢ LỜI ĐÚNG
+                    buttonStyle = 'bg-green-600/30 text-green-300 border-green-500/50';
+                  } else if (isAnswered && !isCorrect) {
+                    // Style cho câu ĐÃ TRẢ LỜI SAI
+                    buttonStyle = 'bg-red-600/30 text-red-300 border-red-500/50';
+                  }
+
+                  return (
+                    <motion.button
+                      key={q.id}
+                      onClick={() => handleJumpToQuestion(index)}
+                      className={`w-8 h-8 rounded-full font-bold transition-all duration-300 flex items-center justify-center border ${buttonStyle}`}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      {/* Hiển thị V (Check) hoặc X thay vì số */}
+                      {isAnswered && isCorrect ? <Check className="w-4 h-4" /> :
+                        isAnswered && !isCorrect ? <X className="w-4 h-4" /> :
+                          <span className="text-xs">{index + 1}</span>
+                      }
+                    </motion.button>
+                  )
+                })}
+              </div>
+              {/* (Kết thúc bảng câu hỏi) */}
+
+
+              {/* (Phần Options và các Nút điều hướng bên dưới giữ nguyên) */}
               <div className="space-y-3 mb-6">
                 {currentQuestion.options.map((option, index) => {
                   const isSelected = selectedAnswers[currentQuestionIndex] === index
                   const isCorrectAnswer = index === currentQuestion.correctAnswer
                   const optionLetter = String.fromCharCode(65 + index) // A, B, C, D
 
-                  let buttonStyle = 'bg-white/5 border-white/20 text-gray-300 hover:bg-white/10 hover:border-white/40'
+                  let buttonStyle = 'bg-black/10 border-yellow-600/30 text-yellow-100 hover:bg-black/20 hover:border-yellow-600/50'
 
                   if (showAnswerFeedback) {
                     if (isCorrectAnswer) {
@@ -382,10 +448,10 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                     } else if (isSelected && !isCorrectAnswer) {
                       buttonStyle = 'bg-red-600/50 border-red-400 text-white'
                     } else {
-                      buttonStyle = 'bg-white/5 border-white/20 text-gray-400'
+                      buttonStyle = 'bg-black/10 border-yellow-600/20 text-yellow-300 opacity-60'
                     }
                   } else if (isSelected) {
-                    buttonStyle = 'bg-blue-600/50 border-blue-400 text-white'
+                    buttonStyle = 'bg-yellow-600/50 border-yellow-400 text-white'
                   }
 
                   return (
@@ -402,7 +468,9 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                           ? 'bg-green-500 text-white'
                           : showAnswerFeedback && isSelected && !isCorrectAnswer
                             ? 'bg-red-500 text-white'
-                            : 'bg-white/20'
+                            : isSelected
+                              ? 'bg-yellow-500 text-[#3b2f05]'
+                              : 'bg-black/20'
                           }`}>
                           {showAnswerFeedback && isCorrectAnswer ? '✓' :
                             showAnswerFeedback && isSelected && !isCorrectAnswer ? '✗' :
@@ -410,7 +478,7 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                         </span>
                         <span className="text-base">{option}</span>
                         {showAnswerFeedback && isCorrectAnswer && (
-                          <span className="ml-auto text-green-400 font-bold">👉 Đáp án đúng</span>
+                          <span className="ml-auto text-green-400 font-bold flex-shrink-0">👉 Đáp án đúng</span>
                         )}
                       </div>
                     </motion.button>
@@ -418,10 +486,9 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                 })}
               </div>
 
-              {/* Answer feedback */}
               {showAnswerFeedback && (
                 <motion.div
-                  className="mb-5 p-3 rounded-xl bg-white/10 border border-white/20"
+                  className="mb-5 p-3 rounded-xl bg-black/20 border border-yellow-600/30"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -429,25 +496,24 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                   {selectedAnswers[currentQuestionIndex] === currentQuestion.correctAnswer ? (
                     <div className="flex items-center space-x-2 text-green-400">
                       <span className="text-xl">🎉</span>
-                      <span className="font-bold">Chính xác! Bạn đã chọn đúng đáp án.</span>
+                      <span className="font-bold">Chính xác! {currentQuestion.explanation}</span>
                     </div>
                   ) : (
                     <div className="flex items-center space-x-2 text-red-400">
                       <span className="text-xl">❌</span>
-                      <span className="font-bold">Sai. Đáp án đúng là: {String.fromCharCode(65 + currentQuestion.correctAnswer)} - {currentQuestion.explanation}</span>
+                      <span className="font-bold">Sai. {currentQuestion.explanation}</span>
                     </div>
                   )}
                 </motion.div>
               )}
 
-              {/* Navigation */}
               <div className="flex justify-between items-center">
                 <motion.button
                   onClick={handlePrevious}
                   disabled={currentQuestionIndex === 0}
                   className={`px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${currentQuestionIndex === 0
-                    ? 'bg-gray-600/50 text-gray-400 cursor-not-allowed'
-                    : 'bg-white/20 text-white hover:bg-white/30 cursor-pointer'
+                    ? 'bg-black/10 text-yellow-100 opacity-50 cursor-not-allowed'
+                    : 'bg-black/20 text-yellow-100 hover:bg-black/30 cursor-pointer'
                     }`}
                   whileHover={currentQuestionIndex > 0 ? { scale: 1.05 } : {}}
                   whileTap={currentQuestionIndex > 0 ? { scale: 0.95 } : {}}
@@ -459,8 +525,8 @@ export default function QuizPage({ onNext, onBack, onRestart, onGoToDashboard }:
                   onClick={handleNext}
                   disabled={selectedAnswers[currentQuestionIndex] === -1}
                   className={`px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${selectedAnswers[currentQuestionIndex] === -1
-                    ? 'bg-gray-600/50 text-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 cursor-pointer'
+                    ? 'bg-black/10 text-yellow-100 opacity-50 cursor-not-allowed'
+                    : 'bg-yellow-600 text-[#3b2f05] hover:bg-yellow-500 cursor-pointer'
                     }`}
                   whileHover={selectedAnswers[currentQuestionIndex] !== -1 ? { scale: 1.05 } : {}}
                   whileTap={selectedAnswers[currentQuestionIndex] !== -1 ? { scale: 0.95 } : {}}
