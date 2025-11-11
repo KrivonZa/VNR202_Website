@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import NavigationProvider from "@/components/NavigationProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lịch sử Đảng Cộng sản Việt Nam",
-  description: "Tìm hiểu quá trình ra đời, phát triển và vai trò lãnh đạo của Đảng Cộng sản Việt Nam trong sự nghiệp giải phóng dân tộc, xây dựng và bảo vệ Tổ quốc.",
+  title: "Những Khó Khăn Của Việt Nam Sau Năm 1945",
+  description: "Tìm hiểu về giai đoạn 'Ngàn cân treo sợi tóc' - Những thử thách nghiêm trọng và cách vượt qua của dân tộc Việt Nam từ năm 1945-1946.",
 };
-
 
 export default function RootLayout({
   children,
@@ -24,12 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <body
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NavigationProvider>
+          {children}
+        </NavigationProvider>
       </body>
     </html>
   );

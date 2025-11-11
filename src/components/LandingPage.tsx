@@ -1,106 +1,69 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import TypingEffect from './TypingEffect'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import TypingEffect from "./TypingEffect";
 
 interface LandingPageProps {
-  onStartJourney: () => void
-}
-
-interface SmokePosition {
-  x: number
-  y: number
+  onStartJourney: () => void;
 }
 
 export default function LandingPage({ onStartJourney }: LandingPageProps) {
-  const [showButton, setShowButton] = useState(false)
-  const [smokePositions, setSmokePositions] = useState<SmokePosition[]>([])
+  const [showButton, setShowButton] = useState(false);
 
-  const title = "Những Khó Khăn Của Việt Nam Sau Năm 1945"
-  const subtitle =
-    'Tìm hiểu về giai đoạn "Ngàn cân treo sợi tóc" - Những thử thách nghiêm trọng và cách vượt qua của dân tộc Việt Nam'
+  const title = "Việt Nam 1945–1946: Ngàn Cân Treo Sợi Tóc";
+  const subtitle = "Hành trình sinh tồn của một dân tộc giữa bão tố lịch sử";
 
-  // ✅ Chỉ random vị trí khói sau khi client mount
-  useEffect(() => {
-    const arr = Array.from({ length: 3 }, () => ({
-      x: Math.random() * 600 - 300,
-      y: Math.random() * 400 - 200
-    }))
-    setSmokePositions(arr)
-  }, [])
+  const handleTypingComplete = () => setShowButton(true);
 
-  const handleTypingComplete = () => {
-    setShowButton(true)
-  }
+  const starCount = 120;
+  const stars = Array.from({ length: starCount }, (_, i) => ({
+    left: 2 + ((i * 137.5) % 97),
+    top: 5 + ((i * 91.7) % 90),
+    delay: (i * 0.1) % 5,
+    duration: 2 + (i % 5),
+    size: i % 7 === 0 ? 2 : 1,
+  }));
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#4b2e05] via-[#8b5e2a] to-[#d2a679]">
-      {/* Hiệu ứng khói bay nhẹ */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {smokePositions.map((pos, i) => (
+    <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-90"
+        style={{
+          backgroundImage:
+            "url('/images/background.jpeg')",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.25)] mix-blend-multiply" />
+
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,69,19,0.2)_0%,rgba(101,67,33,0.4)_80%)]" />
+
+      <div className="absolute inset-0 pointer-events-none">
+        {stars.map((star, i) => (
           <motion.div
             key={i}
-            className="absolute w-[500px] h-[300px] bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.08)_0%,_rgba(255,255,255,0)_70%)]"
-            initial={{
-              x: pos.x,
-              y: pos.y,
-              opacity: 0.15,
-              scale: 1.2,
+            className={`absolute bg-yellow-300 rounded-full shadow-lg`}
+            style={{
+              left: `${star.left}%`,
+              top: `${star.top}%`,
+              width: star.size + 1,
+              height: star.size + 1,
             }}
             animate={{
-              x: [pos.x + 50, pos.x - 50],
-              y: [pos.y + 30, pos.y - 30],
-              opacity: [0.1, 0.25, 0.15],
+              opacity: [0.1, 1, 0.1],
+              scale: [1, 1.6, 1],
             }}
             transition={{
-              duration: 30 + i * 10,
+              duration: star.duration,
               repeat: Infinity,
-              ease: 'easeInOut',
+              delay: star.delay,
+              ease: "easeInOut",
             }}
           />
         ))}
       </div>
 
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 border-2 border-yellow-400 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 border-2 border-yellow-400 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-10 w-16 h-16 border-2 border-yellow-400 rounded-full animate-pulse delay-500"></div>
-      </div>
-
-      {/* Sao lấp lánh */}
-      <div className="absolute inset-0">
-        {Array.from({ length: 50 }).map((_, i) => {
-          const positions = [
-            { left: 12.5, top: 15.3 }, { left: 67.8, top: 23.1 },
-            { left: 89.2, top: 45.7 }, { left: 34.6, top: 67.2 },
-            { left: 78.9, top: 12.8 }, { left: 23.1, top: 89.4 },
-          ]
-          const pos = positions[i % positions.length]
-          return (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-yellow-200 rounded-full"
-              style={{
-                left: `${pos.left}%`,
-                top: `${pos.top}%`,
-              }}
-              animate={{
-                opacity: [0.3, 1, 0.3],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 2 + (i % 4),
-                repeat: Infinity,
-                delay: (i % 8) * 0.25,
-              }}
-            />
-          )
-        })}
-      </div>
-
-      {/* Main content */}
       <div className="container mx-auto px-6 text-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -108,25 +71,32 @@ export default function LandingPage({ onStartJourney }: LandingPageProps) {
           transition={{ duration: 1 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Star symbol */}
           <motion.div
-            className="w-20 h-20 mx-auto mb-8 bg-yellow-400 rounded-full flex items-center justify-center shadow-[0_0_25px_#fbbf24]"
+            className="w-24 h-24 mx-auto mb-10 bg-yellow-400 rounded-full flex items-center justify-center shadow-[0_0_40px_#ff9e00]"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1.2, delay: 0.5 }}
           >
-            <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center">
-              <span className="text-yellow-300 text-2xl font-bold">★</span>
+            <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center shadow-inner">
+              <span className="text-yellow-300 text-4xl font-bold drop-shadow-lg">
+                ★
+              </span>
             </div>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 bg-clip-text text-transparent drop-shadow-lg">
-            <TypingEffect text={title} speed={100} onComplete={handleTypingComplete} />
+          <h1
+            className="text-4xl md:text-7xl font-bold mb-6 
+             bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] 
+             bg-clip-text text-transparent 
+             drop-shadow-[0_0_15px_rgba(255,228,181,0.4)] 
+             inline-block leading-[1.2] pb-[0.1em] overflow-visible"
+          >
+            <TypingEffect
+              text={title}
+              speed={90}
+              onComplete={handleTypingComplete}
+            />
           </h1>
-
-          <div className="text-xl md:text-2xl text-yellow-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-            {showButton && <TypingEffect text={subtitle} speed={50} />}
-          </div>
 
           {showButton && (
             <motion.div
@@ -134,32 +104,37 @@ export default function LandingPage({ onStartJourney }: LandingPageProps) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
+              <p className="text-lg md:text-2xl text-white font-medium mb-10 max-w-2xl mx-auto leading-relaxed bg-white/20 rounded-xl p-5 shadow-lg backdrop-blur-md border-2 border-white/30">
+                <TypingEffect text={subtitle} speed={60} />
+              </p>
+
               <motion.button
                 onClick={onStartJourney}
-                className="bg-yellow-600 hover:bg-yellow-500 text-[#3b2f05] font-bold py-4 px-8 rounded-full text-xl shadow-2xl border-4 border-yellow-300 cursor-pointer"
+                className="relative overflow-hidden bg-gradient-to-r from-amber-700 to-yellow-600 text-white font-bold py-5 px-10 rounded-full text-xl border-4 border-amber-800 shadow-[0_0_25px_rgba(139,69,19,0.6)] cursor-pointer transition-all duration-500 ease-out"
                 whileHover={{
-                  scale: 1.1,
-                  boxShadow: "0 0 30px rgba(251, 191, 36, 0.8)",
+                  scale: 1.05,
+                  boxShadow: "0 0 40px rgba(139, 69, 19, 0.9)",
                 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.97 }}
               >
-                🚀 Bắt đầu hành trình
+                <span className="relative z-10">Bắt Đầu Hành Trình</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-yellow-700 to-amber-600 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-out rounded-full" />
               </motion.button>
             </motion.div>
           )}
-        </motion.div>
 
-        {showButton && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="text-yellow-100 text-lg mt-8 max-w-2xl mx-auto"
-          >
-            Khám phá giai đoạn lịch sử đầy thử thách từ năm 1945-1946 — khi đất nước đứng giữa bờ vực sinh tồn.
-          </motion.p>
-        )}
+          {showButton && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+              className="text-white text-base md:text-lg mt-8 max-w-xl mx-auto bg-white/15 rounded-lg p-4 backdrop-blur-sm shadow-inner border-t-2 border-white/40"
+            >
+              Khám phá những ngày đất nước đứng giữa lằn ranh sinh tử.
+            </motion.p>
+          )}
+        </motion.div>
       </div>
     </div>
-  )
+  );
 }
