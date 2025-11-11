@@ -174,7 +174,7 @@ export default function DashboardSection({
             Bảng Điều Khiển
           </h1>
           <p className="text-[#f4e3b7] text-lg max-w-3xl mx-auto italic">
-            Khám phá giai đoạn "Ngàn cân treo sợi tóc" - Những khó khăn nghiêm
+            Khám phá giai đoạn &quot;Ngàn cân treo sợi tóc&quot; - Những khó khăn nghiêm
             trọng của Việt Nam sau năm 1945 và cách vượt qua.
           </p>
         </motion.div>
