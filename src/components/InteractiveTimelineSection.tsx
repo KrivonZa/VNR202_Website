@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Clock, ChevronLeft, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface InteractiveTimelineSectionProps {
@@ -17,6 +17,19 @@ export default function InteractiveTimelineSection({
   onGoToDashboard,
 }: InteractiveTimelineSectionProps) {
   const [selectedEvent, setSelectedEvent] = useState(0);
+  const [windowSize, setWindowSize] = useState({ width: 800, height: 600 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Đảm bảo render client-only
+    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const events = [
     {
@@ -95,36 +108,38 @@ export default function InteractiveTimelineSection({
       {/* Overlay cổ điển ấm */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#3b2b17]/80 via-[#5b3c1a]/60 to-[#2c1c0f]/90 mix-blend-multiply" />
 
-      {/* Hiệu ứng hạt bụi ánh sáng */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-[2px] h-[2px] bg-yellow-200/30 rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              opacity: 0.1,
-            }}
-            animate={{
-              x: [
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-              ],
-              y: [
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-              ],
-              opacity: [0.1, 0.4, 0.1],
-            }}
-            transition={{
-              duration: 25 + i * 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+      {/* Hiệu ứng hạt ánh sáng */}
+      {isClient && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(10)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-[2px] h-[2px] bg-yellow-200/30 rounded-full"
+              initial={{
+                x: Math.random() * windowSize.width,
+                y: Math.random() * windowSize.height,
+                opacity: 0.1,
+              }}
+              animate={{
+                x: [
+                  Math.random() * windowSize.width,
+                  Math.random() * windowSize.width,
+                ],
+                y: [
+                  Math.random() * windowSize.height,
+                  Math.random() * windowSize.height,
+                ],
+                opacity: [0.1, 0.4, 0.1],
+              }}
+              transition={{
+                duration: 25 + i * 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Tiêu đề */}
@@ -148,9 +163,7 @@ export default function InteractiveTimelineSection({
         {/* Thanh tiến trình */}
         <div className="relative w-full h-3 bg-[#ffffff22] rounded-full mb-12">
           <motion.div
-            className="absolute top-0 left-0 h-full 
-               bg-gradient-to-r from-[#f6d47b] via-[#e6b34a] to-[#b57923] 
-               rounded-full shadow-[0_0_12px_rgba(255,230,150,0.6)]"
+            className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#f6d47b] via-[#e6b34a] to-[#b57923] rounded-full shadow-[0_0_12px_rgba(255,230,150,0.6)]"
             initial={{ width: 0 }}
             animate={{
               width: `${((selectedEvent + 1) / events.length) * 100}%`,
@@ -189,6 +202,7 @@ export default function InteractiveTimelineSection({
                 width={800}
                 height={450}
                 className="w-full h-64 object-cover rounded-xl border border-[#f9e4b7]/30 mb-6 shadow-[0_0_15px_rgba(255,228,181,0.2)]"
+                unoptimized
               />
 
               <p className="text-[#fff8e1] leading-relaxed mb-6">
