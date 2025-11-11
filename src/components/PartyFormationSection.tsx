@@ -146,7 +146,7 @@ export default function PartyFormationSection({
       const context = externalChallenges.find((c) => c.id === props.id);
       if (!context) return null;
       const IconComponent = context.icon;
-      return <IconComponent className="w-10 h-10 text-[#f8e1a1]" />;
+      return <IconComponent className="w-10 h-10 text-[#3b2a0c]" />;
     };
 
     return (
@@ -330,13 +330,13 @@ export default function PartyFormationSection({
               transition={{ delay: 0.3 }}
               className="bg-[#f8f1da]/10 rounded-lg p-6 flex items-start border border-[#b38b46]/40"
             >
-              <MapPin className="w-6 h-6 mr-4 text-[#d9b06a] flex-shrink-0" />
+              <MapPin className="w-6 h-6 mr-4 text-[#ffad20] flex-shrink-0" />
               <div>
                 <h4 className="text-xl font-bold text-[#ffdf80] mb-2">
                   Miền Bắc (Từ vĩ tuyến 16)
                 </h4>
                 <p className="text-[#f3e3c3]">
-                  <strong className="text-[#d9b06a]">20 vạn quân Tưởng</strong>,
+                  <strong className="text-[#ffad20]">20 vạn quân Tưởng</strong>,
                   theo sau là các tổ chức phản động Việt Quốc, Việt Cách.
                 </p>
               </div>
@@ -348,14 +348,14 @@ export default function PartyFormationSection({
               transition={{ delay: 0.5 }}
               className="bg-[#f8f1da]/10 rounded-lg p-6 flex items-start border border-[#b38b46]/40"
             >
-              <MapPin className="w-6 h-6 mr-4 text-[#c09757] flex-shrink-0" />
+              <MapPin className="w-6 h-6 mr-4 text-[#ffad20] flex-shrink-0" />
               <div>
                 <h4 className="text-xl font-bold text-[#ffdf80] mb-2">
                   Miền Nam (Từ vĩ tuyến 16)
                 </h4>
                 <p className="text-[#f3e3c3]">
-                  <strong className="text-[#c09757]">Quân Anh</strong>, tạo điều
-                  kiện cho <strong className="text-[#c09757]">Quân Pháp</strong>{" "}
+                  <strong className="text-[#ffad20]">Quân Anh</strong>, tạo điều
+                  kiện cho <strong className="text-[#ffad20]">Quân Pháp</strong>{" "}
                   quay lại tái chiếm.
                 </p>
               </div>
@@ -367,13 +367,13 @@ export default function PartyFormationSection({
               transition={{ delay: 0.7 }}
               className="bg-[#f8f1da]/10 rounded-lg p-6 flex items-start border border-[#b38b46]/40"
             >
-              <ShieldAlert className="w-6 h-6 mr-4 text-[#b38b46] flex-shrink-0" />
+              <ShieldAlert className="w-6 h-6 mr-4 text-[#ffad20] flex-shrink-0" />
               <div>
                 <h4 className="text-xl font-bold text-[#ffdf80] mb-2">
                   Toàn quốc
                 </h4>
                 <p className="text-[#f3e3c3]">
-                  <strong className="text-[#b38b46]">
+                  <strong className="text-[#ffad20]">
                     Hơn 6 vạn quân Nhật
                   </strong>{" "}
                   tuy đã đầu hàng nhưng vẫn còn vũ khí.
@@ -437,7 +437,7 @@ export default function PartyFormationSection({
                 className="bg-[#f8f1da]/20 backdrop-blur-md border border-[#d8c7a2]/40 rounded-xl p-6 shadow-[0_0_20px_rgba(193,167,117,0.15)]"
               >
                 <div className="mb-4">
-                  <Icon className="w-10 h-10 text-[#f8e1a1]" />
+                  <Icon className="w-10 h-10 text-[#f8e1a1\\\]" />
                 </div>
                 <h3 className="text-xl font-bold text-[#ffdf80] mb-2">
                   {item.title}
@@ -524,7 +524,7 @@ export default function PartyFormationSection({
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)]">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)] leading-[1.2]">
             Khó Khăn Ngoại Tại
           </h1>
           <p className="text-[#f4e3b7] text-xl italic">

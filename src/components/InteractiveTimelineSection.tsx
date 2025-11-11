@@ -151,7 +151,7 @@ export default function InteractiveTimelineSection({
         >
           <div className="flex items-center justify-center mb-6">
             <Clock className="w-8 h-8 mr-3 text-amber-200 drop-shadow-md" />
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#f9e4b7] via-[#e0b86d] to-[#b07a2a] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,228,181,0.4)]">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#f9e4b7] via-[#e0b86d] to-[#b07a2a] bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(255,228,181,0.4)] leading-[1.2]">
               Dòng Thời Gian Khó Khăn
             </h1>
           </div>

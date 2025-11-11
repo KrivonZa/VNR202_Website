@@ -76,7 +76,7 @@ export default function HistoricalContextSection({
         >
           <div className="flex items-center justify-center mb-6">
             <Clock className="w-8 h-8 mr-3 text-[#f8e1a1]" />
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)]">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)] leading-[1.2]">
               Bối Cảnh Lịch Sử
             </h1>
           </div>
@@ -117,13 +117,9 @@ export default function HistoricalContextSection({
                 Chủ nghĩa thực dân
               </h3>
               <ul className="space-y-3">
-                <li>
-                  ⚔ Chủ nghĩa thực dân suy yếu nhưng vẫn tìm cách tái chiếm
-                </li>
-                <li>🇫🇷 Pháp nuôi tham vọng trở lại Việt Nam</li>
-                <li>
-                  🇬🇧 Anh và Tưởng Giới Thạch có ảnh hưởng lớn ở Đông Nam Á
-                </li>
+                <li>Chủ nghĩa thực dân suy yếu nhưng vẫn tìm cách tái chiếm</li>
+                <li>Pháp nuôi tham vọng trở lại Việt Nam</li>
+                <li>Anh và Tưởng Giới Thạch có ảnh hưởng lớn ở Đông Nam Á</li>
               </ul>
             </div>
           </div>

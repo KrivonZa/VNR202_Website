@@ -179,7 +179,7 @@ export default function SolutionMeasuresSection({
               }
             >
               <div className="mb-4">
-                <Icon className="w-10 h-10 text-[#f8e1a1]" />
+                <Icon className="w-10 h-10 text-[#3b2a0c]" />
               </div>
               <h3 className="text-xl font-bold text-[#3b2a0c] mb-2">
                 {measure.title}
@@ -220,7 +220,7 @@ export default function SolutionMeasuresSection({
             >
               <div className="flex items-start mb-4">
                 <div className="mr-4 pt-1">
-                  <Icon className="w-10 h-10 text-[#f8e1a1]" />
+                  <Icon className="w-10 h-10 text-[#3b2a0c]" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-[#3b2a0c] mb-2">

@@ -162,7 +162,7 @@ export default function ResultsSignificanceSection({
               }
             >
               <div className="mb-4">
-                <Icon className="w-10 h-10 text-[#f8e1a1]" />
+                <Icon className="w-10 h-10 text-[#3b2a0c]" />
               </div>
               <h3 className="text-xl font-bold text-[#3b2a0c] mb-2">
                 {factor.title}
@@ -203,7 +203,7 @@ export default function ResultsSignificanceSection({
             >
               <div className="flex items-start mb-4">
                 <div className="mr-4 pt-1">
-                  <Icon className="w-10 h-10 text-[#f8e1a1]" />
+                  <Icon className="w-10 h-10 text-[#3b2a0c]" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-[#3b2a0c] mb-2">
@@ -426,7 +426,7 @@ export default function ResultsSignificanceSection({
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)]">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)] leading-[1.2]">
             Kết Quả và Ý Nghĩa Lịch Sử
           </h1>
           <p className="text-[#f4e3b7] text-xl italic">
