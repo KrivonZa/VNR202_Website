@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Những Khó Khăn Của Việt Nam Sau Năm 1945",
+  title: "1945.Digital",
   description: "Tìm hiểu về giai đoạn 'Ngàn cân treo sợi tóc' - Những thử thách nghiêm trọng và cách vượt qua của dân tộc Việt Nam từ năm 1945-1946.",
 };
 
