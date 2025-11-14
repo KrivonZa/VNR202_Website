@@ -170,7 +170,7 @@ export default function DashboardSection({
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)] mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#f9e4b7] via-[#e8c77e] to-[#b8860b] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,228,181,0.4)] mb-4 leading-[1.2]">
             Bảng Điều Khiển
           </h1>
           <p className="text-[#f4e3b7] text-lg max-w-3xl mx-auto italic">
